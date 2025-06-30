@@ -63,7 +63,7 @@ $(BINDIR):
 # Generar documentación con Doxygen
 dox: $(DOXYFILE)
 	@echo "Generando documentación Doxygen..."
-	doxygen $(DOXYFILE)
+	cd $(DOCDIR) && doxygen Doxyfile
 	@echo "Documentación Doxygen generada en $(DOXY_OUTPUT_HTML) y $(DOXY_OUTPUT_LATEX)."
 
 # Compilar el documento LaTeX a PDF
