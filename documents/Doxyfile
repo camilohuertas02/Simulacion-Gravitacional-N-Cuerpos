@@ -73,6 +73,7 @@ INHERIT_DOCS           = YES
 GENERATE_TODOLIST      = YES
 GENERATE_TESTLIST      = YES
 GENERATE_BUGLIST       = YES
+LATEX_SOURCE_CODE      = YES
 
 # Aliases personalizados para comandos de documentación
 ALIASES               += "complexity=\par Complexity:\n"
