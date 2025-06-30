@@ -66,12 +66,18 @@ dox: $(DOXYFILE)
 	cd $(DOCDIR) && doxygen Doxyfile
 	@echo "Documentación Doxygen generada en $(DOXY_OUTPUT_HTML) y $(DOXY_OUTPUT_LATEX)."
 
+# Compilar PDF de Doxygen (lo va a crear únicamente si se ha generado la documentación)
+doxpdf: $(DOXY_OUTPUT_LATEX)
+	@echo "Compilando PDF de Doxygen..."
+	cd $(DOXY_OUTPUT_LATEX) && make
+	@echo "PDF de Doxygen generado: $(DOXY_OUTPUT_LATEX)/refman.pdf"
+
 # Compilar el documento LaTeX a PDF
 # Puede requerir múltiples pasadas para referencias cruzadas y tabla de contenidos.
 pdf: $(LATEX_DOC)
 	@echo "Generando PDF desde LaTeX..."
-	pdflatex -output-directory=$(DOCDIR) $(LATEX_DOC)
-	pdflatex -output-directory=$(DOCDIR) $(LATEX_DOC) # Segunda pasada para referencias
+	cd $(DOCDIR) && pdflatex gravitacional.tex
+	cd $(DOCDIR) && pdflatex gravitacional.tex # Segunda pasada para referencias
 	@echo "PDF $(PDF_DOC) generado."
 
 
@@ -90,4 +96,4 @@ clean:
 	@echo "Limpieza completada."
 
 # Marcar reglas como phony (no son archivos)
-.PHONY: all dox pdf clean
+.PHONY: all dox doxpdf pdf clean
