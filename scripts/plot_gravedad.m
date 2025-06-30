@@ -1,126 +1,123 @@
-% Script de Octave/MATLAB para graficar resultados de simulación N-cuerpos
-% Se espera que se llame desde Octave, pasando el nombre del archivo y N como argumentos
-% Ejemplo desde línea de comando (si el script está en el path de Octave):
-% octave --eval "plot_gravedad('results/datos_2.dat', 2)"
-% o desde C++: octave scripts/plot_gravedad.m results/datos_2.dat 2
+% ====================================================================
+% Script de Octave/MATLAB INTELIGENTE y CORREGIDO para N-cuerpos
+% - No necesita argumentos.
+% - Detecta 'N' y la dimensionalidad (2D/3D) automáticamente.
+% - Usa sintaxis correcta de Octave/MATLAB sin funciones inexistentes.
+% ====================================================================
 
-function plot_gravedad(filename, N_bodies_str)
-    if nargin < 2
-        disp('Uso: plot_gravedad(filename, N_bodies_str)');
-        disp('Ejemplo: plot_gravedad(''results/datos_2.dat'', ''2'')');
-        return;
+% --- Limpieza del entorno ---
+clear; clc; close all;
+
+% --- Paso 1: Configuración ---
+FILENAME = "results/sim_data.dat";
+Z_THRESHOLD = 1e-6; 
+
+disp(["Script autosuficiente: Analizando archivo '", FILENAME, "'..."]);
+
+% --- Paso 2: Calcular N automáticamente desde la cabecera ---
+try
+    fid = fopen(FILENAME, 'r');
+    if (fid == -1)
+        error(['No se pudo abrir el archivo: ', FILENAME]);
     end
-
-    N_bodies = str2num(N_bodies_str);
-    if isempty(N_bodies) || N_bodies <= 0
-        error('El número de cuerpos debe ser un entero positivo.');
+    header_line = fgetl(fid);
+    fclose(fid);
+    
+    columns = strsplit(strtrim(header_line(2:end))); 
+    TOTAL_COLS = numel(columns);
+    N_BODIES = (TOTAL_COLS - 4) / 4;
+    
+    if (mod(N_BODIES, 1) ~= 0 || N_BODIES <= 0)
+        error('El número de cuerpos calculado desde la cabecera no es un entero positivo.');
     end
+    
+    disp(['Cuerpos detectados: N=', num2str(N_BODIES)]);
+catch ME
+    error(['No se pudo leer la cabecera del archivo para determinar N. Error: ', ME.message]);
+end
 
-    disp(['Cargando datos desde: ', filename]);
-    try
-        data = dlmread(filename, '', 1, 0); % Saltar la primera fila (cabecera)
-    catch
-        error(['No se pudo leer el archivo de datos: ', filename]);
+
+% --- Paso 3: Cargar datos y detectar dimensionalidad ---
+try
+    data = dlmread(FILENAME, '', 1, 0); 
+catch ME
+    error(['No se pudo leer el archivo de datos. Error: ', ME.message]);
+end
+
+z_col_indices = 4:3:(1 + 3*N_BODIES);
+z_data = data(:, z_col_indices);
+z_range = max(z_data(:)) - min(z_data(:));
+is_3d = z_range > Z_THRESHOLD;
+
+% --- CORRECCIÓN AQUÍ: Usamos if/else para crear el string ---
+if (is_3d)
+    dim_string = '3D';
+else
+    dim_string = '2D';
+end
+disp(['Rango de Z detectado: ', num2str(z_range), '. El movimiento es ', dim_string, '.']);
+
+
+% --- Paso 4: Graficar Trayectorias ---
+figure('visible', 'off'); % Crear figura sin mostrarla en pantalla inmediatamente
+hold on;
+colors = lines(N_BODIES); 
+legends = {};
+
+if (is_3d)
+    disp('Generando gráfico de trayectorias 3D...');
+    for i = 1:N_BODIES
+        idx_x = 2 + 3*(i-1); idx_y = 3 + 3*(i-1); idx_z = 4 + 3*(i-1);
+        plot3(data(:, idx_x), data(:, idx_y), data(:, idx_z), 'LineWidth', 2, 'Color', colors(i,:));
+        legends{end+1} = ['Cuerpo ', num2str(i)];
     end
+    xlabel('X'); ylabel('Y'); zlabel('Z');
+    title(sprintf('Trayectorias (Vista 3D, N=%d Cuerpos)', N_BODIES));
+    view(3);
+    axis equal;
+else
+    disp('Generando gráfico de trayectorias 2D...');
+    for i = 1:N_BODIES
+        idx_x = 2 + 3*(i-1); idx_y = 3 + 3*(i-1);
+        plot(data(:, idx_x), data(:, idx_y), 'LineWidth', 2, 'Color', colors(i,:));
+        legends{end+1} = ['Cuerpo ', num2str(i)];
+    end
+    xlabel('X'); ylabel('Y');
+    title(sprintf('Trayectorias (Vista 2D, N=%d Cuerpos)', N_BODIES));
+    axis equal;
+end
+legend(legends);
+grid on;
+hold off;
 
-    tiempo = data(:, 1);
+% --- CORRECCIÓN AQUÍ: Usamos la variable dim_string ---
+output_path_traj = sprintf('results/trayectorias_octave_%s_%d.png', dim_string, N_BODIES);
+print(output_path_traj, '-dpng');
+disp(['Gráfica de trayectorias guardada en: ', output_path_traj]);
 
-    % --- Gráfica de Trayectorias ---
-    figure;
+
+% --- Paso 5: Graficar Energías ---
+col_k_idx = 1 + 4*N_BODIES + 1;
+col_u_idx = col_k_idx + 1;
+col_e_idx = col_k_idx + 2;
+
+if col_e_idx <= size(data, 2)
+    figure('visible', 'off');
     hold on;
-    colors = lines(N_bodies); % Obtener N colores distintos
-
-    for i = 1:N_bodies
-        % Columnas: t, x1,y1,z1, x2,y2,z2, ...
-        idx_x = 1 + (i-1)*3 + 1; % +1 por la columna de tiempo
-        idx_y = idx_x + 1;
-        idx_z = idx_y + 1;
-
-        if idx_z <= size(data, 2)
-             plot3(data(:, idx_x), data(:, idx_y), data(:, idx_z), ...
-                  'DisplayName', sprintf('Cuerpo %d', i), 'Color', colors(i,:));
-        elseif idx_y <= size(data,2) % Caso 2D
-            plot(data(:,idx_x), data(:,idx_y), ...
-                 'DisplayName', sprintf('Cuerpo %d', i), 'Color', colors(i,:));
-        else
-            disp(['No hay suficientes columnas de posición para el cuerpo ', num2str(i)]);
-        end
-    end
-
-    if idx_z <= size(data,2)
-        xlabel('X');
-        ylabel('Y');
-        zlabel('Z');
-        view(3); % Asegurar vista 3D
-    else
-        xlabel('X');
-        ylabel('Y');
-    end
-
-    title(sprintf('Trayectorias Simulación N=%d Cuerpos', N_bodies));
+    plot(data(:,1), data(:,col_k_idx), 'r', 'LineWidth', 2, 'DisplayName', 'Energía Cinética Total');
+    plot(data(:,1), data(:,col_u_idx), 'b', 'LineWidth', 2, 'DisplayName', 'Energía Potencial Total');
+    plot(data(:,1), data(:,col_e_idx), 'g', 'LineWidth', 2, 'DisplayName', 'Energía Total del Sistema');
+    hold off;
+    xlabel('Tiempo'); ylabel('Energía');
+    title(sprintf('Energías del Sistema (N=%d Cuerpos)', N_BODIES));
     legend show;
     grid on;
-    hold off;
 
-    try
-        print(sprintf('results/trayectorias_octave_%d.png', N_bodies), '-dpng');
-        disp(sprintf('Gráfica de trayectorias guardada en: results/trayectorias_octave_%d.png', N_bodies));
-    catch ME
-        disp(['Error guardando gráfica de trayectorias: ', ME.message]);
-    end
-
-
-    % --- Gráfica de Energías ---
-    % Columnas de energía: K_total, U_total, E_total
-    % K_total es N_BODIES*3 (pos) + N_BODIES*1 (vel) + 1 (tiempo) + 1 = (4*N_BODIES + 2)
-    % U_total es (4*N_BODIES + 3)
-    % E_total es (4*N_BODIES + 4)
-
-    col_k_idx = 1 + N_bodies*3 + N_bodies*1 + 1; % +1 por la columna de tiempo
-    col_u_idx = col_k_idx + 1;
-    col_e_idx = col_k_idx + 2;
-
-    if col_e_idx <= size(data, 2)
-        K_total = data(:, col_k_idx);
-        U_total = data(:, col_u_idx);
-        E_total = data(:, col_e_idx);
-
-        figure;
-        hold on;
-        plot(tiempo, K_total, 'r', 'DisplayName', 'Energía Cinética Total');
-        plot(tiempo, U_total, 'b', 'DisplayName', 'Energía Potencial Total');
-        plot(tiempo, E_total, 'g', 'DisplayName', 'Energía Total del Sistema');
-        hold off;
-
-        xlabel('Tiempo');
-        ylabel('Energía');
-        title(sprintf('Energías del Sistema (N=%d Cuerpos)', N_bodies));
-        legend show;
-        grid on;
-
-        try
-            print(sprintf('results/energias_octave_%d.png', N_bodies), '-dpng');
-            disp(sprintf('Gráfica de energías guardada en: results/energias_octave_%d.png', N_bodies));
-        catch ME
-            disp(['Error guardando gráfica de energías: ', ME.message]);
-        end
-
-    else
-        disp('No se encontraron columnas de energía en el archivo de datos.');
-    end
-
-    % Para uso interactivo, se puede añadir 'pause;' aquí.
-    % Si se ejecuta desde un script, Octave podría cerrarse inmediatamente.
+    output_path_energy = sprintf('results/energias_octave_%d.png', N_BODIES);
+    print(output_path_energy, '-dpng');
+    disp(['Gráfica de energías guardada en: ', output_path_energy]);
+else
+    disp('No se encontraron columnas de energía en el archivo de datos.');
 end
 
-% --- Manejo de argumentos de línea de comando para Octave ---
-% Esto permite llamar al script como: octave scripts/plot_gravedad.m results/datos_N.dat N
-args = argv();
-if length(args) == 2
-    plot_gravedad(args{1}, args{2});
-elseif length(args) > 0 && ~strcmp(args{1}, "--eval") % Evitar conflicto si se llama con --eval
-    disp("Llamada incorrecta al script desde línea de comando.");
-    disp("Uso: octave plot_gravedad.m <ruta_archivo_datos> <numero_de_cuerpos>");
-end
-% Si no hay argumentos (o son de --eval), la función no se ejecuta automáticamente,
-% lo cual está bien si se carga y luego se llama manualmente.
+disp('Proceso de graficación completado.');
