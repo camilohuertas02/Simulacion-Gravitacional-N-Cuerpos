@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @brief Programa principal para simulación gravitacional N-cuerpos
+ * @details Implementa el algoritmo de Verlet para resolver el problema
+ *          gravitacional de N cuerpos con conservación de energía
+ * @author Isabel Nieto & Camilo Huertas
+ * @date 2025
+ */
+
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -7,23 +16,63 @@
 #include <iomanip>
 #include <cstdlib>
 
+
 #include "vector3D.h"
 #include "Cuerpo.h"
 #include "utilidades.h"
+/**
+ * @brief Variables globales para la simulación
+ * @details Estas variables mantienen el estado de la simulación
+ */
+int N_cuerpos;                           ///< Número de cuerpos en la simulación
+double dt_sim;                          ///< Paso de tiempo [unidades de tiempo]
+double t_max_sim;                       ///< Tiempo total de simulación [unidades de tiempo]
+std::vector<Cuerpo> planetas;           ///< Contenedor de todos los cuerpos
+std::vector<vector3D> fuerzas_siguientes; ///< Fuerzas F(t+dt) para algoritmo de Verlet
 
-// Variables globales para la simulación
-int N_cuerpos;
-double dt_sim;
-double t_max_sim;
-std::vector<Cuerpo> planetas;
-std::vector<vector3D> fuerzas_siguientes;
+/**
+ * @brief Solicita y valida los datos de entrada del usuario
+ * @details Pide número de cuerpos, propiedades físicas y parámetros de simulación
+ * @post Todos los vectores globales quedan inicializados
+ */
 
-// --- Declaraciones de funciones ---
 void solicitarDatos();
+
+/**
+ * @brief Verifica la validez de los datos ingresados
+ * @return true si todos los datos son válidos, false en caso contrario
+ * @details Verifica masas positivas y que no haya cuerpos en la misma posición
+ */
 bool verificarDatos();
-void calcularTodasLasFuerzas(std::vector<Cuerpo>& cuerpos_actuales, std::vector<vector3D>& fuerzas_a_calcular);
+
+/**
+ * @brief Calcula las fuerzas gravitacionales para todos los cuerpos
+ * @param cuerpos_actuales Vector de cuerpos con posiciones actuales
+ * @param fuerzas_a_calcular Vector donde se almacenan las fuerzas calculadas
+ * @details Implementa la suma de fuerzas N-cuerpos evitando doble conteo
+ * @note Complejidad: O(N²) donde N es el número de cuerpos
+ */
+void calcularTodasLasFuerzas(std::vector<Cuerpo>& cuerpos_actuales, 
+                            std::vector<vector3D>& fuerzas_a_calcular);
+
+/**
+ * @brief Calcula la energía cinética total del sistema
+ * @param cuerpos_actuales Vector de cuerpos con velocidades actuales
+ * @return Energía cinética total K = Σ(½mᵢvᵢ²)
+ */
 double calcularEnergiaCineticaTotal(const std::vector<Cuerpo>& cuerpos_actuales);
+
+/**
+ * @brief Calcula la energía potencial gravitacional total
+ * @param cuerpos_actuales Vector de cuerpos con posiciones actuales
+ * @return Energía potencial total U = -Σᵢ<ⱼ(Gmᵢmⱼ/rᵢⱼ)
+ */
 double calcularEnergiaPotencialTotal(const std::vector<Cuerpo>& cuerpos_actuales);
+
+/**
+ * @brief Interfaz para seleccionar herramienta de graficación
+ * @details Permite elegir entre Gnuplot, Python/Matplotlib u Octave
+ */
 void graficarResultados();
 
 // --- Implementación de funciones ---

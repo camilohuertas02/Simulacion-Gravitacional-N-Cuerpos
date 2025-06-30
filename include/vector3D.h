@@ -1,37 +1,52 @@
-/* ---------------------------------------------
- * vector3D.h
- * Definición de la clase vector3D para álgebra vectorial en 3D.
- * ---------------------------------------------*/
+/**
+ * @file vector3D.h
+ * @brief Definición de la clase vector3D para álgebra vectorial 3D
+ * @author Isabel Nieto & Camilo Huertas  
+ * @date 2025
+ */
+
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
 
 #include <iostream>
 
 /**
- * @brief Clase para manipular vectores tridimensionales.
+ * @brief Clase para manipular vectores tridimensionales
+ * @details Proporciona operaciones básicas de álgebra vectorial necesarias
+ *          para simulaciones físicas en 3D
  */
 class vector3D {
 private:
-    double X, Y, Z;
+    double X, Y, Z; ///< Componentes cartesianas del vector
 
 public:
-    // --- Constructores (Buena Práctica) ---
-    /// Inicializa el vector en (0,0,0)
     vector3D();
-    /// Inicializa el vector con componentes (x, y, z)
     vector3D(double x0, double y0, double z0);
-
-    // --- Métodos de Acceso y Modificación ---
-    /// Carga el vector con componentes (x, y, z)
+    /**
+     * @brief Inicializa el vector con componentes específicas
+     * @param x0 Componente X
+     * @param y0 Componente Y  
+     * @param z0 Componente Z
+     * @post El vector queda inicializado con (x0, y0, z0)
+     */
     void load(double x0, double y0, double z0);
 
-    /// Retorna la componente X
+    /**
+     * @brief Obtiene la componente X del vector
+     * @return Componente X
+     */    
     double x() const;
-    /// Retorna la componente Y
+    /**
+     * @brief Obtiene la componente Y del vector
+     * @return Componente Y
+     */    
     double y() const;
-    /// Retorna la componente Z
+    /**
+     * @brief Obtiene la componente Z del vector
+     * @return Componente Z
+     */    
     double z() const;
-
+  
     /// Muestra el vector por consola
     void show() const;
 
