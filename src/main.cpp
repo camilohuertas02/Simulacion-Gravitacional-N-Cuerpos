@@ -20,6 +20,7 @@
 #include "vector3D.h"
 #include "Cuerpo.h"
 #include "utilidades.h"
+#include "../test/testing.h"
 /**
  * @brief Variables globales para la simulación
  * @details Estas variables mantienen el estado de la simulación
@@ -268,7 +269,7 @@ int main() {
     calcularTodasLasFuerzas(planetas, fuerzas_siguientes);
 
     double t_actual = 0;
-    int paso_impresion = 0;
+    //int paso_impresion = 0;
     int pasos_totales = static_cast<int>(t_max_sim / dt_sim);
     int intervalo_impresion = pasos_totales / 10; // Imprimir progreso un 10% de las veces
     if (intervalo_impresion == 0) intervalo_impresion = 1;
@@ -300,6 +301,6 @@ int main() {
     std::cout << "Simulación completada. Resultados guardados en " << nombre_archivo_salida << std::endl;
 
     graficarResultados();
-
+    
     return 0;
 }
