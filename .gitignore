@@ -2,12 +2,14 @@
 documents/html/*
 !documents/html/index.html
 
+
 # Ignorar toda la carpeta latex excepto refman.tex y refman.pdf
 documents/latex/*
 !documents/latex/refman.tex
 !documents/latex/refman.pdf
 
 # Otros 
+.venv
 *.o
 *.aux
 *.log
