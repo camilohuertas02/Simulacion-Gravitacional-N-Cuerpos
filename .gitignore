@@ -9,7 +9,7 @@ documents/latex/*
 !documents/latex/refman.pdf
 
 # Otros 
-.venv
+venv
 *.o
 *.aux
 *.log
