@@ -1,14 +1,21 @@
 /**
  * @file main_test.cpp
  * @brief Programa principal para modo testing de herramientas de graficación
- * @author Isabel
+ * @author Isabel Nieto y Camilo Huertas
  * @date 2025
+ * @details Este programa proporciona una interfaz completa para probar todas las
+ *          herramientas de visualización disponibles con datos reales de simulación
  */
 
 #include <iostream>
 #include <fstream>
 #include "testing.h"
 
+/**
+ * @brief Función principal del programa de testing
+ * @return Código de salida (0 = éxito)
+ * @details Inicializa el sistema de testing y transfiere control a ejecutarModoTesting()
+ */
 int main() {
     std::cout << "=== PROGRAMA DE TESTING - SIMULACIÓN GRAVITACIONAL ===\n";
     std::cout << "Este programa permite probar diferentes herramientas de graficación\n";
@@ -34,6 +41,5 @@ int main() {
     
     Testing::ejecutarModoTesting();
     
-    std::cout << "\n¡Gracias por usar el modo testing!\n";
     return 0;
 }

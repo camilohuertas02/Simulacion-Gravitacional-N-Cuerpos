@@ -11,6 +11,8 @@ namespace Testing {
 
 /**
  * @brief Obtiene sistemas predefinidos como plantillas para el programa principal
+ * @return Vector con configuraciones de sistemas orbitales conocidos
+ * @details Incluye órbita circular, sistema Tierra-Luna, problema de 3 cuerpos, etc.
  */
 std::vector<SistemaPrueba> obtenerSistemasPredefinidos() {
     std::vector<SistemaPrueba> sistemas;
@@ -90,6 +92,9 @@ std::vector<SistemaPrueba> obtenerSistemasPredefinidos() {
 
 /**
  * @brief Genera archivo de entrada para el programa principal
+ * @param sistema Configuración del sistema a escribir en el archivo
+ * @details Genera input_temp.txt con formato: N, masas, radios, posiciones, 
+ *          velocidades, dt, t_max, opción de graficación
  */
 void generarArchivoEntrada(const SistemaPrueba& sistema) {
     std::ofstream archivo("input_temp.txt");
@@ -113,13 +118,16 @@ void generarArchivoEntrada(const SistemaPrueba& sistema) {
     
     archivo << sistema.dt << "\n";
     archivo << sistema.t_max << "\n";
-    archivo << "4\n"; // No graficar desde el programa principal
+    archivo << "6\n"; // No graficar desde el programa principal
     
     archivo.close();
 }
 
 /**
  * @brief Ejecuta simulación con el programa principal usando sistema predefinido
+ * @param sistema Sistema predefinido cuyos datos se usarán para la simulación
+ * @details Genera archivo de entrada temporal, compila código fuente y 
+ *          ejecuta simulación redirigiendo entrada desde archivo temporal
  */
 void ejecutarSimulacionConSistema(const SistemaPrueba& sistema) {
     std::cout << "\n=== EJECUTANDO SIMULACIÓN CON PROGRAMA PRINCIPAL ===\n";
@@ -171,6 +179,8 @@ void ejecutarSimulacionConSistema(const SistemaPrueba& sistema) {
 
 /**
  * @brief Muestra menú de sistemas predefinidos
+ * @details Presenta lista interactiva de sistemas disponibles, permite selección
+ *          y ejecuta simulación completa del sistema elegido
  */
 void mostrarSistemasPredefinidos() {
     auto sistemas = obtenerSistemasPredefinidos();
@@ -199,7 +209,7 @@ void mostrarSistemasPredefinidos() {
 }
 
 /**
- * @brief Menú principal actualizado
+ * @brief Menú principal
  */
 void mostrarMenuTesting() {
     std::cout << "\n=== MODO TESTING - HERRAMIENTAS DE GRAFICACIÓN ===\n";
@@ -207,17 +217,21 @@ void mostrarMenuTesting() {
     std::cout << "1. Ejecutar simulación con sistema predefinido\n";
     std::cout << "2. Ver información de sistemas disponibles\n";
     std::cout << "3. Ejecutar programa principal manualmente\n";
-    std::cout << "\n--- HERRAMIENTAS DE GRAFICACIÓN ---\n";
+    std::cout << "\n--- HERRAMIENTAS DE GRAFICACIÓN ESTÁTICAS ---\n";
     std::cout << "4. Probar Python (matplotlib)\n";
     std::cout << "5. Probar Octave/MATLAB\n";
     std::cout << "6. Probar Gnuplot\n";
-    std::cout << "7. Probar TODAS las herramientas\n";
+    std::cout << "7. Probar TODAS las herramientas estáticas\n";
+    std::cout << "\n--- ANIMACIONES (GIF) ---\n";
+    std::cout << "8. Crear GIF animado con Python\n";
+    std::cout << "9. Crear GIF animado con Gnuplot\n";
+    std::cout << "10. Probar TODAS las herramientas (estáticas + GIFs)\n";
     std::cout << "\n--- UTILIDADES ---\n";
-    std::cout << "8. Ver archivos de resultados\n";
-    std::cout << "9. Verificar datos generados\n";
-    std::cout << "10. Limpiar archivos de resultados\n";
-    std::cout << "11. Salir\n";
-    std::cout << "================================================\n";
+    std::cout << "11. Ver archivos de resultados\n";
+    std::cout << "12. Verificar datos generados\n";
+    std::cout << "13. Limpiar archivos de resultados\n";
+    std::cout << "14. Salir\n";
+    std::cout << "========================================================\n";
 }
 
 void ejecutarModoTesting() {
@@ -226,7 +240,7 @@ void ejecutarModoTesting() {
     
     while (continuar) {
         mostrarMenuTesting();
-        std::cout << "Selecciona una opción (1-11): ";
+        std::cout << "Selecciona una opción (1-14): ";
         std::cin >> opcion;
         std::cin.ignore(); // Limpiar buffer
         
@@ -270,21 +284,30 @@ void ejecutarModoTesting() {
                 probarTodasLasHerramientas();
                 break;
             case 8:
-                verArchivosResultados();
+                probarGIFPython();
                 break;
             case 9:
-                verificarFormatoArchivo();
+                probarGIFGnuplot();
                 break;
             case 10:
+                probarTodasLasHerramientasConGIF();
+                break;
+            case 11:
+                verArchivosResultados();
+                break;
+            case 12:
+                verificarFormatoArchivo();
+                break;
+            case 13:
                 std::cout << "¿Confirmar limpieza de archivos? (s/n): ";
                 char resp;
                 std::cin >> resp;
                 if (resp == 's' || resp == 'S') {
-                    system("rm -f ../results/*.dat ../results/*.png ../results/*.pdf ../results/*.eps");
-                    std::cout << "✅ Archivos limpiados\n";
+                    system("rm -f ../results/*.dat ../results/*.png ../results/*.pdf ../results/*.eps ../results/*.gif");
+                    std::cout << "✅ Archivos limpiados (incluyendo GIFs)\n";
                 }
                 break;
-            case 11:
+            case 14:
                 std::cout << "Saliendo del modo testing...\n";
                 continuar = false;
                 break;
@@ -294,7 +317,7 @@ void ejecutarModoTesting() {
         }
         
         // Solo mostrar opción de salir después de ejecutar herramientas de graficación
-        if (continuar && opcion >= 4 && opcion <= 7) {
+        if (continuar && ((opcion >= 4 && opcion <= 7) || (opcion >= 8 && opcion <= 10))) {
             std::cout << "\n¿Salir del programa? (s/n): ";
             char respuesta;
             std::cin >> respuesta;
@@ -312,7 +335,7 @@ void ejecutarModoTesting() {
         }
         
         // Pausa para utilidades
-        if (continuar && (opcion >= 8 && opcion <= 10)) {
+        if (continuar && (opcion >= 11 && opcion <= 13)) {
             std::cout << "\nPresiona Enter para continuar...";
             std::cin.get();
         }
@@ -320,7 +343,9 @@ void ejecutarModoTesting() {
 }
 
 /**
- * @brief Verifica el formato del archivo de datos generado
+ * @brief Analiza y valida estructura del archivo de datos de simulación
+ * @details Lee cabecera para determinar número de cuerpos, verifica formato
+ *          de columnas y muestra estadísticas básicas de los datos
  */
 void verificarFormatoArchivo() {
     std::cout << "\n=== VERIFICANDO FORMATO DE ARCHIVO DE DATOS ===\n";
@@ -467,12 +492,84 @@ void probarTodasLasHerramientas() {
     probarGnuplot();
 }
 
+void probarGIFPython() {
+    std::cout << "\n=== PROBANDO CREACIÓN DE GIF CON PYTHON ===\n";
+    
+    if (ejecutarComando("python3 -c 'import matplotlib.animation; import PIL; print(\"OK\")'") != 0) {
+        std::cout << "❌ Dependencias no encontradas\n";
+        std::cout << "Instalar con: pip3 install matplotlib pillow\n";
+        return;
+    }
+    
+    std::cout << "✅ Dependencias disponibles\n";
+    
+    // Verificar archivo de datos
+    std::ifstream archivo_datos("../results/sim_data.dat");
+    if (!archivo_datos.good()) {
+        std::cout << "❌ No se encontró ../results/sim_data.dat\n";
+        std::cout << "   Ejecuta primero una simulación\n";
+        return;
+    }
+    
+    std::cout << "✅ Datos encontrados\n";
+    std::cout << "Creando GIF animado... (esto puede tomar varios minutos)\n";
+    if (ejecutarComando("cd .. && python3 scripts/create_gif.py") == 0) {
+        std::cout << "✅ GIF creado con Python\n";
+    }
+}
+
+void probarGIFGnuplot() {
+    std::cout << "\n=== PROBANDO CREACIÓN DE GIF CON GNUPLOT ===\n";
+    
+    if (ejecutarComando("gnuplot --version") != 0) {
+        std::cout << "❌ Gnuplot no encontrado\n";
+        return;
+    }
+    
+    std::cout << "✅ Gnuplot disponible\n";
+    
+    // Verificar archivo de datos
+    std::ifstream archivo_datos("../results/sim_data.dat");
+    if (!archivo_datos.good()) {
+        std::cout << "❌ No se encontró ../results/sim_data.dat\n";
+        std::cout << "   Ejecuta primero una simulación\n";
+        return;
+    }
+    
+    std::cout << "✅ Datos encontrados\n";
+    std::cout << "Creando GIF animado con Gnuplot...\n";
+    if (ejecutarComando("cd .. && gnuplot scripts/create_gif.gp") == 0) {
+        std::cout << "✅ GIF creado con Gnuplot\n";
+    }
+}
+
 /**
  * @brief Ver archivos de resultados
  */
 void verArchivosResultados() {
     std::cout << "\n=== ARCHIVOS EN DIRECTORIO RESULTS ===\n";
     ejecutarComando("ls -la ../results/");
+}
+
+/**
+ * @brief Prueba todas las herramientas incluyendo creación de GIFs
+ */
+void probarTodasLasHerramientasConGIF() {
+    std::cout << "\n=== PROBANDO TODAS LAS HERRAMIENTAS (ESTÁTICAS + GIFS) ===\n";
+    
+    // Primero las herramientas estáticas
+    std::cout << "\n--- GRÁFICAS ESTÁTICAS ---\n";
+    probarPython();
+    probarOctave();
+    probarGnuplot();
+    
+    // Luego los GIFs animados
+    std::cout << "\n--- ANIMACIONES GIF ---\n";
+    probarGIFPython();
+    probarGIFGnuplot();
+    
+    std::cout << "\n🎉 TODAS LAS HERRAMIENTAS PROBADAS 🎉\n";
+    std::cout << "Revisa el directorio results/ para ver todos los archivos generados.\n";
 }
 
 } // namespace Testing
