@@ -16,11 +16,10 @@
 #include <iomanip>
 #include <cstdlib>
 
-
 #include "vector3D.h"
 #include "Cuerpo.h"
 #include "utilidades.h"
-#include "../test/testing.h"
+
 /**
  * @brief Variables globales para la simulación
  * @details Estas variables mantienen el estado de la simulación

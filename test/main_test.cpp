@@ -12,19 +12,24 @@
 int main() {
     std::cout << "=== PROGRAMA DE TESTING - SIMULACIÓN GRAVITACIONAL ===\n";
     std::cout << "Este programa permite probar diferentes herramientas de graficación\n";
-    std::cout << "Asegúrate de haber ejecutado una simulación primero para tener datos.\n";
+    std::cout << "con datos de simulación reales generados por el programa principal.\n";
     
-    // Verificar si existe el archivo de datos
-    std::ifstream file("results/sim_data.dat");
+    // Verificar si existe el archivo de datos (desde test/ necesitamos ir a ../results/)
+    std::ifstream file("../results/sim_data.dat");
     if (!file.good()) {
-        std::cout << "\n⚠️  ADVERTENCIA: No se encontró 'results/sim_data.dat'\n";
-        std::cout << "   Ejecuta primero una simulación con el programa principal.\n";
+        std::cout << "\n⚠️  ADVERTENCIA: No se encontró '../results/sim_data.dat'\n";
+        std::cout << "   Puedes:\n";
+        std::cout << "   1. Ejecutar primero una simulación con el programa principal\n";
+        std::cout << "   2. Usar un sistema predefinido para generar datos\n";
         std::cout << "\n¿Continuar de todas formas? (s/n): ";
         char respuesta;
         std::cin >> respuesta;
         if (respuesta != 's' && respuesta != 'S') {
             return 0;
         }
+    } else {
+        std::cout << "\n✓ Archivo de datos encontrado: ../results/sim_data.dat\n";
+        file.close();
     }
     
     Testing::ejecutarModoTesting();
