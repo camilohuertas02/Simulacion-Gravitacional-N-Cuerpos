@@ -9,11 +9,19 @@ INCLUDEDIR = include
 BINDIR = bin
 DOCDIR = documents
 RESULTSDIR = results
+TESTDIR = test
 
 # Archivos fuente y objeto
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+TEST_SOURCES = $(TESTDIR)/testing.cpp
+TEST_MAIN = $(TESTDIR)/main_test.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = $(BINDIR)/gravedad
+TEST_OBJECTS = $(TEST_SOURCES:.cpp=.o)
+TEST_MAIN_OBJ = $(TEST_MAIN:.cpp=.o)
+
+# Ejecutables
+EXECUTABLE = gravedad
+TEST_EXECUTABLE = $(TESTDIR)/test_graficas
 
 # Archivo LaTeX principal y PDF
 LATEX_DOC = $(DOCDIR)/gravitacional.tex
@@ -26,19 +34,18 @@ DOXY_OUTPUT_LATEX = $(DOCDIR)/latex
 
 # --- Reglas Principales ---
 
-# Regla por defecto: compilar todo
-all: $(EXECUTABLE)
+# Regla por defecto: compilar solo el programa principal
+all: $(BINDIR)/$(EXECUTABLE)
 
-# Regla para compilar el ejecutable
-$(EXECUTABLE): $(OBJECTS) | $(BINDIR)
-	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
-	@echo "Ejecutable $(EXECUTABLE) compilado."
+# Compilación del ejecutable principal (SIN archivos de test)
+$(BINDIR)/$(EXECUTABLE): $(OBJECTS) | $(BINDIR)
+	$(CXX) $(OBJECTS) -o $(BINDIR)/$(EXECUTABLE) $(LDFLAGS)
+	@echo "Compilación exitosa: $(BINDIR)/$(EXECUTABLE)"
 
-# Regla genérica para compilar archivos .cpp a .o
-# Los objetos se guardan en el mismo directorio que las fuentes (src)
-# %.h como prerrequisito general es demasiado amplio, mejor especificar dependencias más concretas.
-# $(SRCDIR)/%.o: $(SRCDIR)/%.cpp $(wildcard $(INCLUDEDIR)/*.h) | $(SRCDIR)
-#	$(CXX) $(CXXFLAGS) -c $< -o $@
+# Compilación del ejecutable de testing (en test/)
+$(TEST_EXECUTABLE): $(TEST_OBJECTS) $(TEST_MAIN_OBJ)
+	$(CXX) $(TEST_OBJECTS) $(TEST_MAIN_OBJ) -o $(TEST_EXECUTABLE) $(LDFLAGS)
+	@echo "Compilación de testing exitosa: $(TEST_EXECUTABLE)"
 
 # Dependencias específicas para cada archivo objeto
 $(SRCDIR)/main.o: $(SRCDIR)/main.cpp $(INCLUDEDIR)/vector3D.h $(INCLUDEDIR)/Cuerpo.h $(INCLUDEDIR)/utilidades.h
@@ -53,6 +60,12 @@ $(SRCDIR)/vector3D.o: $(SRCDIR)/vector3D.cpp $(INCLUDEDIR)/vector3D.h
 $(SRCDIR)/utilidades.o: $(SRCDIR)/utilidades.cpp $(INCLUDEDIR)/utilidades.h
 	$(CXX) $(CXXFLAGS) -c $(SRCDIR)/utilidades.cpp -o $(SRCDIR)/utilidades.o
 
+# Reglas para compilar archivos de testing
+$(TESTDIR)/testing.o: $(TESTDIR)/testing.cpp $(TESTDIR)/testing.h
+	$(CXX) $(CXXFLAGS) -c $(TESTDIR)/testing.cpp -o $(TESTDIR)/testing.o
+
+$(TESTDIR)/main_test.o: $(TESTDIR)/main_test.cpp $(TESTDIR)/testing.h
+	$(CXX) $(CXXFLAGS) -c $(TESTDIR)/main_test.cpp -o $(TESTDIR)/main_test.o
 
 # Crear directorio bin si no existe
 $(BINDIR):
@@ -63,31 +76,42 @@ $(BINDIR):
 # Generar documentación con Doxygen
 dox: $(DOXYFILE)
 	@echo "Generando documentación Doxygen..."
-	doxygen $(DOXYFILE)
+	cd $(DOCDIR) && doxygen Doxyfile
 	@echo "Documentación Doxygen generada en $(DOXY_OUTPUT_HTML) y $(DOXY_OUTPUT_LATEX)."
 
 # Compilar el documento LaTeX a PDF
-# Puede requerir múltiples pasadas para referencias cruzadas y tabla de contenidos.
 pdf: $(LATEX_DOC)
 	@echo "Generando PDF desde LaTeX..."
-	pdflatex -output-directory=$(DOCDIR) $(LATEX_DOC)
-	pdflatex -output-directory=$(DOCDIR) $(LATEX_DOC) # Segunda pasada para referencias
+	cd $(DOCDIR) && pdflatex gravitacional.tex
+	cd $(DOCDIR) && pdflatex gravitacional.tex # Segunda pasada para referencias
 	@echo "PDF $(PDF_DOC) generado."
 
+# --- Reglas de Prueba ---
 
-# --- Regla de Limpieza ---
+# Regla para compilar y ejecutar el programa de testing
+test: $(TEST_EXECUTABLE)
+	@echo "Ejecutando programa de testing..."
+	cd $(TESTDIR) && ./test_graficas
+
+# Regla para solo compilar el programa de testing
+test-build: $(TEST_EXECUTABLE)
+	@echo "Programa de testing compilado: $(TEST_EXECUTABLE)"
+
+# --- Reglas de Limpieza ---
 
 clean:
 	@echo "Limpiando archivos generados..."
 	rm -f $(SRCDIR)/*.o
-	rm -f $(EXECUTABLE)
+	rm -f $(TESTDIR)/*.o
+	rm -f $(TESTDIR)/input_temp.txt
+	rm -f $(BINDIR)/$(EXECUTABLE)
+	rm -f $(TEST_EXECUTABLE)
 	rm -rf $(DOXY_OUTPUT_HTML)
 	rm -rf $(DOXY_OUTPUT_LATEX)
 	rm -f $(DOCDIR)/*.aux $(DOCDIR)/*.log $(DOCDIR)/*.out $(DOCDIR)/*.toc $(DOCDIR)/*.pdf
 	rm -f $(RESULTSDIR)/*.*
-	# No eliminar los scripts en results, solo los datos.
-	# Si se crean subdirectorios en results, añadir `rm -rf $(RESULTSDIR)/*` pero con cuidado.
+	rm
 	@echo "Limpieza completada."
 
 # Marcar reglas como phony (no son archivos)
-.PHONY: all dox pdf clean
+.PHONY: all dox pdf clean test test-build

@@ -16,10 +16,10 @@
 #include <iomanip>
 #include <cstdlib>
 
-
 #include "vector3D.h"
 #include "Cuerpo.h"
 #include "utilidades.h"
+
 /**
  * @brief Variables globales para la simulación
  * @details Estas variables mantienen el estado de la simulación
@@ -207,8 +207,11 @@ void graficarResultados() {
     std::cout << "1. Gnuplot" << std::endl;
     std::cout << "2. Python (matplotlib)" << std::endl;
     std::cout << "3. Octave" << std::endl;
-    std::cout << "4. No graficar" << std::endl;
+    std::cout << "4. Crear GIF animado (Python)" << std::endl;
+    std::cout << "5. Crear GIF animado (Gnuplot)" << std::endl;
+    std::cout << "6. No graficar" << std::endl;
     std::cout << "Opción: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Move this line here
     int opcion;
     std::cin >> opcion;
 
@@ -223,7 +226,6 @@ void graficarResultados() {
             system(comando.c_str());
             break;
         case 2:
-            // Usando 'python' como solicitaste
             comando = "python scripts/plot_gravedad.py";
             std::cout << "Ejecutando: " << comando << std::endl;
             system(comando.c_str());
@@ -234,6 +236,16 @@ void graficarResultados() {
             system(comando.c_str());
             break;
         case 4:
+            comando = "python scripts/create_gif.py";
+            std::cout << "Creando GIF animado con Python..." << std::endl;
+            system(comando.c_str());
+            break;
+        case 5:
+            comando = "gnuplot scripts/create_gif.gp";
+            std::cout << "Creando GIF animado con Gnuplot..." << std::endl;
+            system(comando.c_str());
+            break;
+        case 6:
             std::cout << "No se graficarán los resultados." << std::endl;
             break;
         default:
@@ -268,7 +280,7 @@ int main() {
     calcularTodasLasFuerzas(planetas, fuerzas_siguientes);
 
     double t_actual = 0;
-    int paso_impresion = 0;
+    //int paso_impresion = 0;
     int pasos_totales = static_cast<int>(t_max_sim / dt_sim);
     int intervalo_impresion = pasos_totales / 10; // Imprimir progreso un 10% de las veces
     if (intervalo_impresion == 0) intervalo_impresion = 1;
@@ -300,6 +312,6 @@ int main() {
     std::cout << "Simulación completada. Resultados guardados en " << nombre_archivo_salida << std::endl;
 
     graficarResultados();
-
+    
     return 0;
 }

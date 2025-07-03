@@ -11,16 +11,16 @@ OUTPUT_DIRECTORY       = .
 OUTPUT_LANGUAGE        = Spanish
 
 # Configuración de entrada
-INPUT                  = ../src ../include ../README.md
+INPUT                  = src/ include/ test/ scripts/
 INPUT_ENCODING         = UTF-8
-FILE_PATTERNS          = *.c *.cpp *.h *.hpp *.md
+FILE_PATTERNS          = *.cpp *.h *.py *.m *.gp
 RECURSIVE              = YES
 INCLUDE_PATH           = ../include/
 EXAMPLE_PATH           = ../scripts/
 
 # Documentación mejorada
 EXTRACT_ALL            = YES
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 EXTRACT_STATIC         = YES
 EXTRACT_LOCAL_CLASSES  = YES
 HIDE_UNDOC_MEMBERS     = NO
@@ -73,6 +73,7 @@ INHERIT_DOCS           = YES
 GENERATE_TODOLIST      = YES
 GENERATE_TESTLIST      = YES
 GENERATE_BUGLIST       = YES
+LATEX_SOURCE_CODE      = YES
 
 # Aliases personalizados para comandos de documentación
 ALIASES               += "complexity=\par Complexity:\n"

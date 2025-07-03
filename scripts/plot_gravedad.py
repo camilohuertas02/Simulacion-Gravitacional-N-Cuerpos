@@ -6,6 +6,47 @@ import os
 FILENAME = "results/sim_data.dat"
 Z_THRESHOLD = 1e-6 # Umbral para considerar el movimiento como 2D
 
+def find_data_file():
+    """
+    Busca el archivo de datos en diferentes ubicaciones posibles.
+    """
+    possible_paths = [
+        "results/sim_data.dat",      # Desde directorio raíz
+        "../results/sim_data.dat",   # Desde test/ o scripts/
+        "../../results/sim_data.dat" # Desde subdirectorios anidados
+    ]
+    
+    for path in possible_paths:
+        if os.path.exists(path):
+            return path
+    
+    return None
+
+def find_results_dir():
+    """
+    Encuentra el directorio results/ para guardar las gráficas.
+    """
+    possible_dirs = [
+        "results/",      # Desde directorio raíz
+        "../results/",   # Desde test/ o scripts/
+        "../../results/" # Desde subdirectorios anidados
+    ]
+    
+    for dir_path in possible_dirs:
+        if os.path.exists(dir_path):
+            return dir_path
+    
+    # Si no existe, crear en la ubicación más probable
+    try:
+        os.makedirs("../results/", exist_ok=True)
+        return "../results/"
+    except:
+        try:
+            os.makedirs("results/", exist_ok=True)
+            return "results/"
+        except:
+            return "./"  # Último recurso: directorio actual
+
 def get_num_bodies_from_header(filepath):
     """
     Lee la primera línea de un archivo de datos para determinar el número de cuerpos.
@@ -24,18 +65,30 @@ def plot_simulation_data():
     """
     Función principal que carga los datos y genera todas las gráficas.
     """
-    if not os.path.exists(FILENAME):
-        print(f"Error: El archivo de datos '{FILENAME}' no fue encontrado.")
+    # Buscar archivo de datos
+    data_file = find_data_file()
+    if data_file is None:
+        print(f"Error: No se encontró el archivo de datos en ninguna ubicación.")
+        print("Ubicaciones buscadas:")
+        print("  - results/sim_data.dat")
+        print("  - ../results/sim_data.dat")
+        print("  - ../../results/sim_data.dat")
         return
 
-    num_bodies = get_num_bodies_from_header(FILENAME)
+    # Buscar directorio de resultados
+    results_dir = find_results_dir()
+    
+    print(f"Archivo de datos encontrado: {data_file}")
+    print(f"Directorio de resultados: {results_dir}")
+
+    num_bodies = get_num_bodies_from_header(data_file)
     if num_bodies is None or num_bodies <= 0:
-        print(f"No se pudo determinar un número válido de cuerpos desde '{FILENAME}'.")
+        print(f"No se pudo determinar un número válido de cuerpos desde '{data_file}'.")
         return
         
-    print(f"Script autosuficiente: Archivo '{FILENAME}', Cuerpos detectados N={num_bodies}")
+    print(f"Script autosuficiente: Archivo '{data_file}', Cuerpos detectados N={num_bodies}")
     
-    data = np.loadtxt(FILENAME, comments='#')
+    data = np.loadtxt(data_file, comments='#')
     time = data[:, 0]
 
     z_column_indices = [3 + i * 3 for i in range(num_bodies)]
@@ -74,7 +127,7 @@ def plot_simulation_data():
     ax_traj.grid(True)
     ax_traj.set_aspect('equal', adjustable='box')
     
-    output_path_traj = f"results/trayectorias_py_{'3D' if is_3d else '2D'}_{num_bodies}.png"
+    output_path_traj = os.path.join(results_dir, f"trayectorias_py_{'3D' if is_3d else '2D'}_{num_bodies}.png")
     plt.savefig(output_path_traj)
     print(f"Gráfica de trayectorias guardada en: {output_path_traj}")
     plt.close(fig)
@@ -96,7 +149,7 @@ def plot_simulation_data():
         ax_energy.legend()
         ax_energy.grid(True)
 
-        output_path_energy = f"results/energias_py_{num_bodies}.png"
+        output_path_energy = os.path.join(results_dir, f"energias_py_{num_bodies}.png")
         plt.savefig(output_path_energy)
         print(f"Gráfica de energías guardada en: {output_path_energy}")
         plt.close(fig_energy)
