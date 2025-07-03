@@ -103,12 +103,14 @@ clean:
 	@echo "Limpiando archivos generados..."
 	rm -f $(SRCDIR)/*.o
 	rm -f $(TESTDIR)/*.o
+	rm -f $(TESTDIR)/input_temp.txt
 	rm -f $(BINDIR)/$(EXECUTABLE)
 	rm -f $(TEST_EXECUTABLE)
 	rm -rf $(DOXY_OUTPUT_HTML)
 	rm -rf $(DOXY_OUTPUT_LATEX)
 	rm -f $(DOCDIR)/*.aux $(DOCDIR)/*.log $(DOCDIR)/*.out $(DOCDIR)/*.toc $(DOCDIR)/*.pdf
 	rm -f $(RESULTSDIR)/*.*
+	rm
 	@echo "Limpieza completada."
 
 # Marcar reglas como phony (no son archivos)
