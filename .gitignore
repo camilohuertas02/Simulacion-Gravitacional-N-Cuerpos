@@ -1,12 +1,12 @@
 # Ignorar toda la carpeta html excepto index.html
-documents/html/*
-!documents/html/index.html
+#documents/html/*
+#!documents/html/index.html
 
 
 # Ignorar toda la carpeta latex excepto refman.tex y refman.pdf
-documents/latex/*
-!documents/latex/refman.tex
-!documents/latex/refman.pdf
+#documents/latex/*
+#!documents/latex/refman.tex
+#!documents/latex/refman.pdf
 
 # Otros 
 venv
@@ -16,11 +16,11 @@ venv
 *.log
 *.out
 *.toc
-bin/
+#bin/
 results/*.dat
 results/*.txt
 results/*.png
-test/test_graficas
+#test/test_graficas
 test/input_temp.txt
 doxygen_warnings.log
 simulacion
