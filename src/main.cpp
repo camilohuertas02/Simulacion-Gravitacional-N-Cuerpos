@@ -207,8 +207,11 @@ void graficarResultados() {
     std::cout << "1. Gnuplot" << std::endl;
     std::cout << "2. Python (matplotlib)" << std::endl;
     std::cout << "3. Octave" << std::endl;
-    std::cout << "4. No graficar" << std::endl;
+    std::cout << "4. Crear GIF animado (Python)" << std::endl;
+    std::cout << "5. Crear GIF animado (Gnuplot)" << std::endl;
+    std::cout << "6. No graficar" << std::endl;
     std::cout << "Opción: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Move this line here
     int opcion;
     std::cin >> opcion;
 
@@ -223,7 +226,6 @@ void graficarResultados() {
             system(comando.c_str());
             break;
         case 2:
-            // Usando 'python' como solicitaste
             comando = "python scripts/plot_gravedad.py";
             std::cout << "Ejecutando: " << comando << std::endl;
             system(comando.c_str());
@@ -234,6 +236,16 @@ void graficarResultados() {
             system(comando.c_str());
             break;
         case 4:
+            comando = "python scripts/create_gif.py";
+            std::cout << "Creando GIF animado con Python..." << std::endl;
+            system(comando.c_str());
+            break;
+        case 5:
+            comando = "gnuplot scripts/create_gif.gp";
+            std::cout << "Creando GIF animado con Gnuplot..." << std::endl;
+            system(comando.c_str());
+            break;
+        case 6:
             std::cout << "No se graficarán los resultados." << std::endl;
             break;
         default:
