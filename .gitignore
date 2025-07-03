@@ -10,6 +10,7 @@ documents/latex/*
 
 # Otros 
 venv
+
 *.o
 *.aux
 *.log
@@ -18,4 +19,8 @@ venv
 bin/
 results/*.dat
 results/*.txt
+results/*.png
+test/test_graficas
+test/input_temp.txt
 doxygen_warnings.log
+simulacion
