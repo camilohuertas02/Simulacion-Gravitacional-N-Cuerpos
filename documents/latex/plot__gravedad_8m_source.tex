@@ -1,0 +1,178 @@
+\doxysection{plot\+\_\+gravedad.\+m}
+\hypertarget{plot__gravedad_8m_source}{}\label{plot__gravedad_8m_source}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/plot\_gravedad.m@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/plot\_gravedad.m}}
+\mbox{\hyperlink{plot__gravedad_8m}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00001}00001\ \%\ ====================================================================}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00002}00002\ \%\ Script\ de\ Octave/MATLAB\ INTELIGENTE\ y\ CORREGIDO\ para\ N-\/cuerpos}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00003}00003\ \%\ -\/\ No\ necesita\ argumentos.}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00004}00004\ \%\ -\/\ Detecta\ \textcolor{charliteral}{'N'}\ y\ la\ dimensionalidad\ (2D/3D)\ automáticamente.}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00005}00005\ \%\ -\/\ Maneja\ rutas\ relativas\ desde\ diferentes\ directorios.}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00006}00006\ \%\ ====================================================================}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00008}00008\ \%\ -\/-\/-\/\ Limpieza\ del\ entorno\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00009}\mbox{\hyperlink{plot__gravedad_8m_a00a349297fa58bc80ff5329e25dcfe28}{00009}}\ clear;\ \mbox{\hyperlink{plot__gravedad_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{clc}};\ close\ \mbox{\hyperlink{plot__gravedad_8m_a00a349297fa58bc80ff5329e25dcfe28}{all}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00011}00011\ \%\ -\/-\/-\/\ Función\ para\ buscar\ archivo\ de\ datos\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00012}\mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{00012}}\ function\ \mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{filename}}\ =\ find\_data\_file()}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00013}00013\ \ \ \ \ possible\_paths\ =\ \{}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/sim\_data.dat"{}},\ \ \ \ \ \ \%\ Desde\ directorio\ raíz}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/sim\_data.dat"{}},\ \ \ \%\ Desde\ test/\ o\ scripts/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/sim\_data.dat"{}}\ \%\ Desde\ subdirectorios\ anidados}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00017}00017\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{filename}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00020}\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{00020}}\ \ \ \ \ \textcolor{keywordflow}{for}\ \mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\ =\ 1:length(possible\_paths)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ exist(possible\_paths\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\},\ \textcolor{stringliteral}{'file'})}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{filename}}\ =\ possible\_paths\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00023}\mbox{\hyperlink{plot__gravedad_8m_a9717e7bbecb906637e86cef6da3d83c2}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00024}00024\ \ \ \ \ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00025}00025\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00026}00026\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00028}00028\ \%\ -\/-\/-\/\ Función\ para\ encontrar\ directorio\ de\ resultados\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00029}\mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{00029}}\ function\ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ find\_results\_dir()}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00030}00030\ \ \ \ \ possible\_dirs\ =\ \{}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/"{}},\ \ \ \ \ \ \%\ Desde\ directorio\ raíz}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/"{}},\ \ \ \%\ Desde\ test/\ o\ scripts/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/"{}}\ \%\ Desde\ subdirectorios\ anidados}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00034}00034\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00035}00035\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{for}\ \mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\ =\ 1:length(possible\_dirs)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ exist(possible\_dirs\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\},\ \textcolor{stringliteral}{'dir'})}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ possible\_dirs\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00041}00041\ \ \ \ \ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00042}00042\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00044}\mbox{\hyperlink{plot__gravedad_8m_a4993fa51c1904460598d64b393b323c9}{00044}}\ \ \ \ \ \%\ Si\ no\ \mbox{\hyperlink{plot__gravedad_8m_a4993fa51c1904460598d64b393b323c9}{existe}},\ intentar\ crear}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00046}\mbox{\hyperlink{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745}{00046}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745}{mkdir}}(\textcolor{stringliteral}{"{}../results/"{}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ \textcolor{stringliteral}{"{}../results/"{}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00050}\mbox{\hyperlink{plot__gravedad_8m_ae78249d469b16f73172c1e93fbb7bc71}{00050}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745}{mkdir}}(\textcolor{stringliteral}{"{}results/"{}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ \textcolor{stringliteral}{"{}results/"{}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\_dir}}\ =\ \textcolor{stringliteral}{"{}./"{}};\ \%\ Último\ recurso}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00054}00054\ \ \ \ \ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00055}00055\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00056}00056\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00058}\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{00058}}\ \%\ -\/-\/-\/\ \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}\ 1:\ Buscar\ archivo\ de\ datos\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00059}00059\ \mbox{\hyperlink{create__gif_8gp_ae4e6f99e1b73b1f62bb9ed8ced355214}{FILENAME}}\ =\ find\_data\_file();}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00060}\mbox{\hyperlink{plot__gravedad_8m_ab3e4ff82a3fa454727294212abb9d859}{00060}}\ \textcolor{keywordflow}{if}\ \mbox{\hyperlink{plot__gravedad_8m_ab3e4ff82a3fa454727294212abb9d859}{isempty}}(FILENAME)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\textcolor{stringliteral}{'No\ se\ encontró\ el\ archivo\ de\ datos\ en\ ninguna\ ubicación.'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00062}00062\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00064}\mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{00064}}\ \mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{RESULTS\_DIR}}\ =\ find\_results\_dir();}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00065}\mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{00065}}\ \mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{Z\_THRESHOLD}}\ =\ 1e-\/6;\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00067}\mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{00067}}\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{"{}Archivo\ de\ datos\ encontrado:\ "{}},\ FILENAME]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00068}00068\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{"{}Directorio\ de\ resultados:\ "{}},\ \mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{RESULTS\_DIR}}]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00069}00069\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{"{}Script\ autosuficiente:\ Analizando\ archivo\ '"{}},\ FILENAME,\ \textcolor{stringliteral}{"{}'..."{}}]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00071}\mbox{\hyperlink{plot__gravedad_8m_a42638690254f30fe757ce1d9bc8c52ed}{00071}}\ \%\ -\/-\/-\/\ \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}\ 2:\ Calcular\ N\ automáticamente\ desde\ la\ cabecera\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00072}00072\ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00073}\mbox{\hyperlink{plot__gravedad_8m_a74981243993ab8ac2afb52f00817b21d}{00073}}\ \ \ \ \ fid\ =\ fopen(FILENAME,\ \textcolor{charliteral}{'r'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (fid\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}([\textcolor{stringliteral}{'No\ se\ pudo\ abrir\ el\ archivo:\ '},\ FILENAME]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00076}00076\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00077}\mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{00077}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{header\_line}}\ =\ fgetl(fid);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00078}\mbox{\hyperlink{plot__gravedad_8m_a5e769bbbabcaddc548203741c7100228}{00078}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a5e769bbbabcaddc548203741c7100228}{fclose}}(fid);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00079}00079\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00080}\mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{00080}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{columns}}\ =\ strsplit(strtrim(\mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{header\_line}}(2:end)));\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00081}\mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{00081}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{TOTAL\_COLS}}\ =\ numel(\mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{columns}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00082}\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{00082}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}\ =\ (\mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{TOTAL\_COLS}}\ -\/\ 4)\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00083}00083\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00084}\mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{00084}}\ \ \ \ \ \textcolor{keywordflow}{if}\ (mod(\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}},\ 1)\ \string~=\ 0\ ||\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}\ <=\ 0)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00085}00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\textcolor{stringliteral}{'El\ número\ de\ cuerpos\ calculado\ desde\ la\ cabecera\ no\ es\ un\ entero\ positivo.'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00086}00086\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00087}00087\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{'Cuerpos\ detectados:\ N='},\ num2str(\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}})]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00089}00089\ \textcolor{keywordflow}{catch}\ ME}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00090}\mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{00090}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}([\textcolor{stringliteral}{'No\ se\ pudo\ leer\ la\ cabecera\ del\ archivo\ para\ determinar\ N.\ Error:\ '},\ ME.message]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00091}00091\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00093}00093\ \%\ -\/-\/-\/\ \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}\ 3:\ Cargar\ datos\ y\ detectar\ dimensionalidad\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00094}00094\ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00095}00095\ \ \ \ \ data\ =\ dlmread(FILENAME,\ \textcolor{stringliteral}{''},\ 1,\ 0);\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00096}00096\ \textcolor{keywordflow}{catch}\ ME}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}([\textcolor{stringliteral}{'No\ se\ pudo\ leer\ el\ archivo\ de\ datos.\ Error:\ '},\ ME.message]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00098}00098\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00100}\mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{00100}}\ \mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{z\_col\_indices}}\ =\ 4:3:(1\ +\ 3*\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00101}\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{00101}}\ \mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\_data}}\ =\ data(:,\ \mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{z\_col\_indices}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00102}\mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{00102}}\ \mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\_range}}\ =\ max(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\_data}}(:))\ -\/\ min(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\_data}}(:));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00103}\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{00103}}\ \mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\_3d}}\ =\ \mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\_range}}\ >\ \mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{Z\_THRESHOLD}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00105}\mbox{\hyperlink{plot__gravedad_8m_a9354591c8e18676acf5573494d696704}{00105}}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\_3d}})}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\_string}}\ =\ \textcolor{stringliteral}{'3D'};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00107}00107\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00108}\mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{00108}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\_string}}\ =\ \textcolor{stringliteral}{'2D'};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00109}00109\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00110}00110\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{'Rango\ de\ Z\ detectado:\ '},\ num2str(\mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\_range}}),\ \textcolor{stringliteral}{'.\ El\ movimiento\ es\ '},\ \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\_string}},\ \textcolor{charliteral}{'.'}]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00112}\mbox{\hyperlink{plot__gravedad_8m_a9b667d3f8e7b841424735347f51adc1c}{00112}}\ \%\ -\/-\/-\/\ \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}\ 4:\ Graficar\ Trayectorias\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00113}\mbox{\hyperlink{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}{00113}}\ figure(\textcolor{stringliteral}{'visible'},\ \textcolor{stringliteral}{'off'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00114}\mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{00114}}\ hold\ \mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{on}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00115}\mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{00115}}\ \mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}\ =\ lines(\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}});\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00116}\mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{00116}}\ \mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}}\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00118}00118\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\_3d}})}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00119}00119\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}(\textcolor{stringliteral}{'Generando\ gráfico\ de\ trayectorias\ 3D...'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{for}\ \mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\ =\ 1:\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00121}\mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{00121}}\ \ \ \ \ \ \ \ \ idx\_x\ =\ 2\ +\ 3*(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1);\ \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\_y}}\ =\ 3\ +\ 3*(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1);\ \mbox{\hyperlink{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}{idx\_z}}\ =\ 4\ +\ 3*(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00122}\mbox{\hyperlink{plot__gravedad_8m_add1fedafa74e10a7abfc1737f772b0f8}{00122}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_add1fedafa74e10a7abfc1737f772b0f8}{plot3}}(data(:,\ idx\_x),\ data(:,\ \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\_y}}),\ data(:,\ \mbox{\hyperlink{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}{idx\_z}}),\ \textcolor{stringliteral}{'LineWidth'},\ 2,\ \textcolor{stringliteral}{'Color'},\ \mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},:));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}}\{end+1\}\ =\ [\textcolor{stringliteral}{'Cuerpo\ '},\ num2str(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}})];}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00124}00124\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00125}\mbox{\hyperlink{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}{00125}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}{xlabel}}(\textcolor{charliteral}{'X'});\ \mbox{\hyperlink{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917}{ylabel}}(\textcolor{charliteral}{'Y'});\ \mbox{\hyperlink{plot__gravedad_8m_a0faf5a6161e9f8cdb658831d495b6652}{zlabel}}(\textcolor{charliteral}{'Z'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00126}\mbox{\hyperlink{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e}{00126}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e}{title}}(sprintf(\textcolor{stringliteral}{'Trayectorias\ (Vista\ 3D,\ N=\%d\ Cuerpos)'},\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00127}\mbox{\hyperlink{plot__gravedad_8m_af1f541d04433e3a53c08be957cdbab91}{00127}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_af1f541d04433e3a53c08be957cdbab91}{view}}(3);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00128}\mbox{\hyperlink{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561}{00128}}\ \ \ \ \ axis\ \mbox{\hyperlink{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561}{equal}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00129}00129\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00130}\mbox{\hyperlink{plot__gravedad_8m_a1b86f6277235d61d35cc285e3af2a26d}{00130}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}(\textcolor{stringliteral}{'Generando\ gráfico\ de\ trayectorias\ 2D...'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{for}\ \mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\ =\ 1:\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00132}00132\ \ \ \ \ \ \ \ \ idx\_x\ =\ 2\ +\ 3*(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1);\ \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\_y}}\ =\ 3\ +\ 3*(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00133}\mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{00133}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{plot}}(data(:,\ idx\_x),\ data(:,\ \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\_y}}),\ \textcolor{stringliteral}{'LineWidth'},\ 2,\ \textcolor{stringliteral}{'Color'},\ \mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},:));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00134}00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}}\{end+1\}\ =\ [\textcolor{stringliteral}{'Cuerpo\ '},\ num2str(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}})];}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00135}00135\ \ \ \ \ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00136}00136\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}{xlabel}}(\textcolor{charliteral}{'X'});\ \mbox{\hyperlink{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917}{ylabel}}(\textcolor{charliteral}{'Y'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00137}\mbox{\hyperlink{plot__gravedad_8m_a0d66112b9a0ace9af79b0d43f612a927}{00137}}\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e}{title}}(sprintf(\textcolor{stringliteral}{'Trayectorias\ (Vista\ 2D,\ N=\%d\ Cuerpos)'},\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00138}00138\ \ \ \ \ axis\ \mbox{\hyperlink{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561}{equal}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00139}00139\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00140}\mbox{\hyperlink{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3}{00140}}\ \mbox{\hyperlink{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3}{legend}}(\mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00141}00141\ grid\ \mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{on}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00142}00142\ hold\ \mbox{\hyperlink{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}{off}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00144}\mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{00144}}\ \mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\_path\_traj}}\ =\ [\mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{RESULTS\_DIR}},\ sprintf(\textcolor{stringliteral}{'trayectorias\_octave\_\%s\_\%d.png'},\ \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\_string}},\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}})];}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00145}\mbox{\hyperlink{plot__gravedad_8m_aa7229ae9cbd98ff5a82dda876bcef10f}{00145}}\ \mbox{\hyperlink{plot__gravedad_8m_aa7229ae9cbd98ff5a82dda876bcef10f}{print}}(\mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\_path\_traj}},\ \textcolor{stringliteral}{'-\/dpng'});}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00146}00146\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}([\textcolor{stringliteral}{'Gráfica\ de\ trayectorias\ guardada\ en:\ '},\ \mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\_path\_traj}}]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00148}\mbox{\hyperlink{plot__gravedad_8m_a0fdebcf1e873250e939cc188775d748a}{00148}}\ \%\ -\/-\/-\/\ \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}\ 5:\ Graficar\ Energías\ -\/-\/-\/}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00149}00149\ col\_k\_idx\ =\ 1\ +\ 4*\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00150}\mbox{\hyperlink{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d}{00150}}\ \mbox{\hyperlink{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d}{col\_u\_idx}}\ =\ col\_k\_idx\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00151}\mbox{\hyperlink{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}{00151}}\ \mbox{\hyperlink{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}{col\_e\_idx}}\ =\ col\_k\_idx\ +\ 2;}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00153}00153\ \textcolor{keywordflow}{if}\ \mbox{\hyperlink{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}{col\_e\_idx}}\ <=\ size(data,\ 2)}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00154}00154\ \ \ \ \ figure('visible',\ '\mbox{\hyperlink{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}{off}}');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00155}00155\ \ \ \ \ hold\ \mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{on}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00156}00156\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{plot}}(data(:,1),\ data(:,col\_k\_idx),\ '\mbox{\hyperlink{plot__gravedad_8m_a74981243993ab8ac2afb52f00817b21d}{r}}',\ 'LineWidth',\ 2,\ 'DisplayName',\ 'Energía\ Cinética\ Total');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00157}00157\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{plot}}(data(:,1),\ data(:,\mbox{\hyperlink{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d}{col\_u\_idx}}),\ 'b',\ 'LineWidth',\ 2,\ 'DisplayName',\ 'Energía\ Potencial\ Total');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{plot}}(data(:,1),\ data(:,\mbox{\hyperlink{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}{col\_e\_idx}}),\ 'g',\ 'LineWidth',\ 2,\ 'DisplayName',\ 'Energía\ Total\ del\ Sistema');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00159}00159\ \ \ \ \ hold\ \mbox{\hyperlink{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}{off}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}{xlabel}}('Tiempo');\ \mbox{\hyperlink{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917}{ylabel}}('Energía');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00161}00161\ \ \ \ \ title(sprintf('Energías\ del\ Sistema\ (N=\%d\ Cuerpos)',\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}}));}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00162}00162\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3}{legend}}\ show;}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00163}00163\ \ \ \ \ grid\ \mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{on}};}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00165}00165\ \ \ \ \ output\_path\_energy\ =\ [\mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{RESULTS\_DIR}},\ sprintf('energias\_octave\_\%d.png',\ \mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\_BODIES}})];}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00166}00166\ \ \ \ \ print(output\_path\_energy,\ '-\/dpng');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00167}00167\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}(['Gráfica\ de\ energías\ guardada\ en:\ ',\ output\_path\_energy]);}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00168}00168\ else}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}('No\ se\ encontraron\ columnas\ de\ energía\ en\ el\ archivo\ de\ datos.');}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00170}00170\ end}
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{plot__gravedad_8m_source_l00172}00172\ \mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}}('Proceso\ de\ graficación\ completado.');}
+
+\end{DoxyCode}

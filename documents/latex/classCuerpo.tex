@@ -1,0 +1,452 @@
+\doxysection{Cuerpo Class Reference}
+\hypertarget{classCuerpo}{}\label{classCuerpo}\index{Cuerpo@{Cuerpo}}
+
+
+Clase que representa un cuerpo celeste en la simulación gravitacional.  
+
+
+
+
+{\ttfamily \#include $<$Cuerpo.\+h$>$}
+
+
+
+Collaboration diagram for Cuerpo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{classCuerpo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCuerpo_a1581568554f78133611a3532538e5071}{Cuerpo}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCuerpo_a2d4de38096e01a5fe440357deff94abf}{Inicie}} (double x0, double y0, double z0, double Vx0, double Vy0, double Vz0, double m0, double R0)
+\begin{DoxyCompactList}\small\item\em Inicializa los atributos del cuerpo con valores específicos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCuerpo_a3d1af9f3f69170486f2ab9d458108157}{Borre\+Fuerza}} ()
+\begin{DoxyCompactList}\small\item\em Reinicia el vector de fuerza a cero. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCuerpo_ae9fe02cf201173b128e1896057771fda}{Adicione\+Fuerza\+Gravitacional}} (\mbox{\hyperlink{classCuerpo}{Cuerpo}} \&otro\+Cuerpo)
+\begin{DoxyCompactList}\small\item\em Calcula y suma la fuerza gravitacional ejercida por otro cuerpo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCuerpo_a46637bc14bef9506edad8ec95430e3a4}{Muevase\+\_\+r}} (double dt)
+\begin{DoxyCompactList}\small\item\em Actualiza la posición usando el algoritmo de Verlet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c}{Muevase\+\_\+V}} (double dt, const \mbox{\hyperlink{classvector3D}{vector3D}} \&F\+\_\+siguiente)
+\begin{DoxyCompactList}\small\item\em Actualiza la velocidad usando el algoritmo de Verlet. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_ad61b2b203578bbdfe07d78c76c186ca9}{Getx}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la coordenada X de la posición. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_a23f52e3212429c9c3ad28b6452452f35}{Gety}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la coordenada Y de la posición. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_a19a9f54a8cc23516f54bcd5d6cdad0d9}{Getz}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la coordenada Z de la posición. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_a085e8c050b1765a52a1dd63600cc89db}{Get\+Vx}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la componente X de la velocidad. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_aa476fc848b88bd50a7c3ff9727b9033f}{Get\+Vy}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la componente Y de la velocidad. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_abc0979b3e372425223a27b90445206af}{Get\+Vz}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la componente Z de la velocidad. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_a93018a2ae46e704f51e7259f38ce612b}{Get\+Vnorm}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la magnitud de la velocidad. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_a616069a0a093e6aef213618a69c32d6c}{Getm}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la masa del cuerpo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}
+\begin{DoxyCompactList}\small\item\em Vector posición del cuerpo \mbox{[}unidades de longitud\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}
+\begin{DoxyCompactList}\small\item\em Vector velocidad del cuerpo \mbox{[}unidades de velocidad\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}
+\begin{DoxyCompactList}\small\item\em Vector fuerza total sobre el cuerpo \mbox{[}unidades de fuerza\mbox{]}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}
+\begin{DoxyCompactList}\small\item\em Masa del cuerpo \mbox{[}unidades de masa\mbox{]}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39}{R}}
+\begin{DoxyCompactList}\small\item\em Radio del cuerpo \mbox{[}unidades de longitud\mbox{]} -\/ Solo referencia, no afecta cálculos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa un cuerpo celeste en la simulación gravitacional. 
+
+Esta clase encapsula las propiedades físicas y métodos necesarios para simular el comportamiento de un cuerpo en un sistema gravitacional N-\/cuerpos. Utiliza el algoritmo de Verlet para la integración numérica.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classvector3D}{vector3D} 
+
+\doxylink{utilidades_8h}{utilidades.\+h} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00024}{24}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classCuerpo_a1581568554f78133611a3532538e5071}\label{classCuerpo_a1581568554f78133611a3532538e5071} 
+\index{Cuerpo@{Cuerpo}!Cuerpo@{Cuerpo}}
+\index{Cuerpo@{Cuerpo}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Cuerpo()}{Cuerpo()}}
+{\footnotesize\ttfamily Cuerpo\+::\+Cuerpo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+Inicializa todos los vectores y valores escalares en cero 
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00036}{36}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCuerpo_ae9fe02cf201173b128e1896057771fda}\label{classCuerpo_ae9fe02cf201173b128e1896057771fda} 
+\index{Cuerpo@{Cuerpo}!AdicioneFuerzaGravitacional@{AdicioneFuerzaGravitacional}}
+\index{AdicioneFuerzaGravitacional@{AdicioneFuerzaGravitacional}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{AdicioneFuerzaGravitacional()}{AdicioneFuerzaGravitacional()}}
+{\footnotesize\ttfamily void Cuerpo\+::\+Adicione\+Fuerza\+Gravitacional (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCuerpo}{Cuerpo}} \&}]{otro\+Cuerpo }\end{DoxyParamCaption})}
+
+
+
+Calcula y suma la fuerza gravitacional ejercida por otro cuerpo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em otro\+Cuerpo} & Referencia al cuerpo que ejerce la fuerza gravitacional\\
+\hline
+\end{DoxyParams}
+Implementa la ley de gravitación universal\+: F = G\texorpdfstring{$\ast$}{*}m1\texorpdfstring{$\ast$}{*}m2/r² \begin{DoxyPrecond}{Precondition}
+La distancia entre cuerpos debe ser \texorpdfstring{$>$}{>} 0 para evitar singularidades 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+La fuerza F se actualiza sumando la contribución gravitacional 
+\end{DoxyPostcond}
+\begin{DoxyWarning}{Warning}
+No verifica colisiones físicas entre cuerpos 
+\end{DoxyWarning}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{Cuerpo_8cpp_source}{Cuerpo.\+cpp}}.
+
+\Hypertarget{classCuerpo_a3d1af9f3f69170486f2ab9d458108157}\label{classCuerpo_a3d1af9f3f69170486f2ab9d458108157} 
+\index{Cuerpo@{Cuerpo}!BorreFuerza@{BorreFuerza}}
+\index{BorreFuerza@{BorreFuerza}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{BorreFuerza()}{BorreFuerza()}}
+{\footnotesize\ttfamily void Cuerpo\+::\+Borre\+Fuerza (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reinicia el vector de fuerza a cero. 
+
+Se debe llamar antes de calcular las fuerzas en cada paso temporal \begin{DoxyPostcond}{Postcondition}
+F = (0, 0, 0) 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{Cuerpo_8cpp_source}{Cuerpo.\+cpp}}.
+
+\Hypertarget{classCuerpo_a616069a0a093e6aef213618a69c32d6c}\label{classCuerpo_a616069a0a093e6aef213618a69c32d6c} 
+\index{Cuerpo@{Cuerpo}!Getm@{Getm}}
+\index{Getm@{Getm}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Getm()}{Getm()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Getm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la masa del cuerpo. 
+
+\begin{DoxyReturn}{Returns}
+Masa del cuerpo \mbox{[}unidades de masa\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00140}{140}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a93018a2ae46e704f51e7259f38ce612b}\label{classCuerpo_a93018a2ae46e704f51e7259f38ce612b} 
+\index{Cuerpo@{Cuerpo}!GetVnorm@{GetVnorm}}
+\index{GetVnorm@{GetVnorm}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{GetVnorm()}{GetVnorm()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Get\+Vnorm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la magnitud de la velocidad. 
+
+\begin{DoxyReturn}{Returns}
+Velocidad escalar (norma del vector velocidad) \mbox{[}unidades de velocidad\mbox{]}
+\end{DoxyReturn}
+Calcula \texorpdfstring{$\vert$}{|}\+V\texorpdfstring{$\vert$}{|} = sqrt(Vx² + Vy² + Vz²) 
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00134}{134}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a085e8c050b1765a52a1dd63600cc89db}\label{classCuerpo_a085e8c050b1765a52a1dd63600cc89db} 
+\index{Cuerpo@{Cuerpo}!GetVx@{GetVx}}
+\index{GetVx@{GetVx}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{GetVx()}{GetVx()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Get\+Vx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la componente X de la velocidad. 
+
+\begin{DoxyReturn}{Returns}
+Velocidad en X \mbox{[}unidades de velocidad\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00115}{115}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_aa476fc848b88bd50a7c3ff9727b9033f}\label{classCuerpo_aa476fc848b88bd50a7c3ff9727b9033f} 
+\index{Cuerpo@{Cuerpo}!GetVy@{GetVy}}
+\index{GetVy@{GetVy}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{GetVy()}{GetVy()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Get\+Vy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la componente Y de la velocidad. 
+
+\begin{DoxyReturn}{Returns}
+Velocidad en Y \mbox{[}unidades de velocidad\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00121}{121}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_abc0979b3e372425223a27b90445206af}\label{classCuerpo_abc0979b3e372425223a27b90445206af} 
+\index{Cuerpo@{Cuerpo}!GetVz@{GetVz}}
+\index{GetVz@{GetVz}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{GetVz()}{GetVz()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Get\+Vz (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la componente Z de la velocidad. 
+
+\begin{DoxyReturn}{Returns}
+Velocidad en Z \mbox{[}unidades de velocidad\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00127}{127}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_ad61b2b203578bbdfe07d78c76c186ca9}\label{classCuerpo_ad61b2b203578bbdfe07d78c76c186ca9} 
+\index{Cuerpo@{Cuerpo}!Getx@{Getx}}
+\index{Getx@{Getx}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Getx()}{Getx()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Getx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la coordenada X de la posición. 
+
+\begin{DoxyReturn}{Returns}
+Coordenada X actual \mbox{[}unidades de longitud\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00097}{97}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a23f52e3212429c9c3ad28b6452452f35}\label{classCuerpo_a23f52e3212429c9c3ad28b6452452f35} 
+\index{Cuerpo@{Cuerpo}!Gety@{Gety}}
+\index{Gety@{Gety}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Gety()}{Gety()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Gety (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la coordenada Y de la posición. 
+
+\begin{DoxyReturn}{Returns}
+Coordenada Y actual \mbox{[}unidades de longitud\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00103}{103}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a19a9f54a8cc23516f54bcd5d6cdad0d9}\label{classCuerpo_a19a9f54a8cc23516f54bcd5d6cdad0d9} 
+\index{Cuerpo@{Cuerpo}!Getz@{Getz}}
+\index{Getz@{Getz}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Getz()}{Getz()}}
+{\footnotesize\ttfamily double Cuerpo\+::\+Getz (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la coordenada Z de la posición. 
+
+\begin{DoxyReturn}{Returns}
+Coordenada Z actual \mbox{[}unidades de longitud\mbox{]} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00109}{109}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a2d4de38096e01a5fe440357deff94abf}\label{classCuerpo_a2d4de38096e01a5fe440357deff94abf} 
+\index{Cuerpo@{Cuerpo}!Inicie@{Inicie}}
+\index{Inicie@{Inicie}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Inicie()}{Inicie()}}
+{\footnotesize\ttfamily void Cuerpo\+::\+Inicie (\begin{DoxyParamCaption}\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{z0,  }\item[{double}]{Vx0,  }\item[{double}]{Vy0,  }\item[{double}]{Vz0,  }\item[{double}]{m0,  }\item[{double}]{R0 }\end{DoxyParamCaption})}
+
+
+
+Inicializa los atributos del cuerpo con valores específicos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Posición inicial en X \mbox{[}unidades de longitud\mbox{]} \\
+\hline
+{\em y0} & Posición inicial en Y \mbox{[}unidades de longitud\mbox{]} \\
+\hline
+{\em z0} & Posición inicial en Z \mbox{[}unidades de longitud\mbox{]} \\
+\hline
+{\em Vx0} & Velocidad inicial en X \mbox{[}unidades de velocidad\mbox{]} \\
+\hline
+{\em Vy0} & Velocidad inicial en Y \mbox{[}unidades de velocidad\mbox{]} \\
+\hline
+{\em Vz0} & Velocidad inicial en Z \mbox{[}unidades de velocidad\mbox{]} \\
+\hline
+{\em m0} & Masa del cuerpo \mbox{[}unidades de masa\mbox{]} -\/ Debe ser \texorpdfstring{$>$}{>} 0 \\
+\hline
+{\em R0} & Radio del cuerpo \mbox{[}unidades de longitud\mbox{]} -\/ Debe ser \texorpdfstring{$>$}{>}= 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+m0 \texorpdfstring{$>$}{>} 0 \&\& R0 \texorpdfstring{$>$}{>}= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+El cuerpo queda inicializado con fuerza cero 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{Cuerpo_8cpp_source}{Cuerpo.\+cpp}}.
+
+\Hypertarget{classCuerpo_a46637bc14bef9506edad8ec95430e3a4}\label{classCuerpo_a46637bc14bef9506edad8ec95430e3a4} 
+\index{Cuerpo@{Cuerpo}!Muevase\_r@{Muevase\_r}}
+\index{Muevase\_r@{Muevase\_r}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Muevase\_r()}{Muevase\_r()}}
+{\footnotesize\ttfamily void Cuerpo\+::\+Muevase\+\_\+r (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})}
+
+
+
+Actualiza la posición usando el algoritmo de Verlet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Paso de tiempo para la integración \mbox{[}unidades de tiempo\mbox{]}\\
+\hline
+\end{DoxyParams}
+Implementa\+: r(t+dt) = \doxylink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r(t)} + \doxylink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V(t)}\texorpdfstring{$\ast$}{*}dt + (\doxylink{classCuerpo_a0fde833c000fddadc28908751643d971}{F(t)}/(2\texorpdfstring{$\ast$}{*}m))\texorpdfstring{$\ast$}{*}dt² \begin{DoxyPrecond}{Precondition}
+dt \texorpdfstring{$>$}{>} 0 \&\& m \texorpdfstring{$>$}{>} 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+La posición r se actualiza al siguiente paso temporal 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{Cuerpo_8cpp_source}{Cuerpo.\+cpp}}.
+
+\Hypertarget{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c}\label{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c} 
+\index{Cuerpo@{Cuerpo}!Muevase\_V@{Muevase\_V}}
+\index{Muevase\_V@{Muevase\_V}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{Muevase\_V()}{Muevase\_V()}}
+{\footnotesize\ttfamily void Cuerpo\+::\+Muevase\+\_\+V (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{F\+\_\+siguiente }\end{DoxyParamCaption})}
+
+
+
+Actualiza la velocidad usando el algoritmo de Verlet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & Paso de tiempo para la integración \mbox{[}unidades de tiempo\mbox{]} \\
+\hline
+{\em F\+\_\+siguiente} & Fuerza en el siguiente paso de tiempo F(t+dt)\\
+\hline
+\end{DoxyParams}
+Implementa\+: V(t+dt) = \doxylink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V(t)} + (\doxylink{classCuerpo_a0fde833c000fddadc28908751643d971}{F(t)} + F(t+dt))/(2\texorpdfstring{$\ast$}{*}m)\texorpdfstring{$\ast$}{*}dt \begin{DoxyPrecond}{Precondition}
+dt \texorpdfstring{$>$}{>} 0 \&\& m \texorpdfstring{$>$}{>} 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+La velocidad V se actualiza al siguiente paso temporal 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{Cuerpo_8cpp_source}{Cuerpo.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCuerpo_a0fde833c000fddadc28908751643d971}\label{classCuerpo_a0fde833c000fddadc28908751643d971} 
+\index{Cuerpo@{Cuerpo}!F@{F}}
+\index{F@{F}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} Cuerpo\+::F}
+
+
+
+Vector fuerza total sobre el cuerpo \mbox{[}unidades de fuerza\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00028}{28}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}\label{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9} 
+\index{Cuerpo@{Cuerpo}!m@{m}}
+\index{m@{m}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily double Cuerpo\+::m}
+
+
+
+Masa del cuerpo \mbox{[}unidades de masa\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00029}{29}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}\label{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039} 
+\index{Cuerpo@{Cuerpo}!r@{r}}
+\index{r@{r}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} Cuerpo\+::r}
+
+
+
+Vector posición del cuerpo \mbox{[}unidades de longitud\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00026}{26}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39}\label{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39} 
+\index{Cuerpo@{Cuerpo}!R@{R}}
+\index{R@{R}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily double Cuerpo\+::R}
+
+
+
+Radio del cuerpo \mbox{[}unidades de longitud\mbox{]} -\/ Solo referencia, no afecta cálculos. 
+
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00030}{30}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+\Hypertarget{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}\label{classCuerpo_a7ce6a5d854353a08979c2484aeb87826} 
+\index{Cuerpo@{Cuerpo}!V@{V}}
+\index{V@{V}!Cuerpo@{Cuerpo}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} Cuerpo\+::V}
+
+
+
+Vector velocidad del cuerpo \mbox{[}unidades de velocidad\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{Cuerpo_8h_source_l00027}{27}} of file \mbox{\hyperlink{Cuerpo_8h_source}{Cuerpo.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/include/\mbox{\hyperlink{Cuerpo_8h}{Cuerpo.\+h}}\item 
+/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/src/\mbox{\hyperlink{Cuerpo_8cpp}{Cuerpo.\+cpp}}\end{DoxyCompactItemize}

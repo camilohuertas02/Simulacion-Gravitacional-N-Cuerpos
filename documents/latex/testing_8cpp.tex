@@ -1,0 +1,71 @@
+\doxysection{/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/test/testing.cpp File Reference}
+\hypertarget{testing_8cpp}{}\label{testing_8cpp}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/test/testing.cpp@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/test/testing.cpp}}
+
+
+Módulo de testing para probar herramientas de graficación con datos del programa principal.  
+
+
+{\ttfamily \#include "{}testing.\+h"{}}\newline
+Include dependency graph for testing.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{testing_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceTesting}{Testing}}
+\begin{DoxyCompactList}\small\item\em Espacio de nombres para funciones de testing y validación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} $>$ \mbox{\hyperlink{namespaceTesting_af8cba327b931474a7bb1b1c0ff5e0dc1}{Testing\+::obtener\+Sistemas\+Predefinidos}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene sistemas predefinidos como plantillas para el programa principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a5579a91cd3913733ea45f8533dfb218d}{Testing\+::generar\+Archivo\+Entrada}} (const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&sistema)
+\begin{DoxyCompactList}\small\item\em Genera archivo de entrada para el programa principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ae5580bcb995f4636febb18a0f2421b54}{Testing\+::ejecutar\+Simulacion\+Con\+Sistema}} (const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&sistema)
+\begin{DoxyCompactList}\small\item\em Ejecuta simulación con el programa principal usando sistema predefinido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a006d04ac6ba48f82f8d91e1831238b29}{Testing\+::mostrar\+Sistemas\+Predefinidos}} ()
+\begin{DoxyCompactList}\small\item\em Muestra menú de sistemas predefinidos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a705b3b00ac4bbc83bf51a6340b10979f}{Testing\+::mostrar\+Menu\+Testing}} ()
+\begin{DoxyCompactList}\small\item\em Menú principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ac37b13f203def54a49a9afd91039e348}{Testing\+::ejecutar\+Modo\+Testing}} ()
+\begin{DoxyCompactList}\small\item\em Función principal del modo testing que maneja el bucle de menú \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aeb820c19468fe2ccc62a3d0b7abf211e}{Testing\+::verificar\+Formato\+Archivo}} ()
+\begin{DoxyCompactList}\small\item\em Analiza y valida estructura del archivo de datos de simulación. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceTesting_a32a38ed9f0f62f62d783c5f5a724e6bd}{Testing\+::ejecutar\+Comando}} (const std\+::string \&comando)
+\begin{DoxyCompactList}\small\item\em Ejecuta un comando del sistema y reporta el resultado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0}{Testing\+::probar\+Python}} ()
+\begin{DoxyCompactList}\small\item\em Prueba Python/matplotlib con scripts existentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099}{Testing\+::probar\+Octave}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la generación de gráficas estáticas con Octave/\+MATLAB. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a9d64c7d5dcd359640782816bc14185db}{Testing\+::probar\+Gnuplot}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la generación de gráficas estáticas con Gnuplot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aed2161604c65f7c66691328eed8bb98e}{Testing\+::probar\+Todas\+Las\+Herramientas}} ()
+\begin{DoxyCompactList}\small\item\em Prueba todas las herramientas con scripts existentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ac7a11550dca1a637411b8cf518657230}{Testing\+::probar\+GIFPython}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la creación de GIF animado usando Python/matplotlib. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a7a3d376bf59511f4d9bd3537935a0e79}{Testing\+::probar\+GIFGnuplot}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la creación de GIF animado usando Gnuplot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a42a7ebe3a4bb3dc1252924ebd5e53385}{Testing\+::ver\+Archivos\+Resultados}} ()
+\begin{DoxyCompactList}\small\item\em Ver archivos de resultados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aa0be7313180c17e921d790efa293a185}{Testing\+::probar\+Todas\+Las\+Herramientas\+Con\+GIF}} ()
+\begin{DoxyCompactList}\small\item\em Prueba todas las herramientas incluyendo creación de GIFs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Módulo de testing para probar herramientas de graficación con datos del programa principal. 
+
+\begin{DoxyAuthor}{Author}
+Isabel Nieto y Camilo Huertas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+

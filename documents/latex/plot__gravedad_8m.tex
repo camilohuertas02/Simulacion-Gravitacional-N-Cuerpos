@@ -1,0 +1,602 @@
+\doxysection{/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/scripts/plot\+\_\+gravedad.m File Reference}
+\hypertarget{plot__gravedad_8m}{}\label{plot__gravedad_8m}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/plot\_gravedad.m@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/plot\_gravedad.m}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+end end Si no intentar crear try \mbox{\hyperlink{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745}{mkdir}} ("{}../results/"{})
+\item 
+catch try \mbox{\hyperlink{plot__gravedad_8m_ae78249d469b16f73172c1e93fbb7bc71}{mkdir}} ("{}results/"{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{if}} \mbox{\hyperlink{plot__gravedad_8m_ab3e4ff82a3fa454727294212abb9d859}{isempty}} (FILENAME) \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\textquotesingle{}No se encontró el archivo de datos en ninguna ubicación.\textquotesingle{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}{disp}} (\mbox{[}"{}Archivo de datos encontrado\+: "{}, FILENAME\mbox{]})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a5e769bbbabcaddc548203741c7100228}{fclose}} (fid)
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{if}} (mod(N\+\_\+\+BODIES, 1) \texorpdfstring{$\sim$}{\string~}=0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}N\+\_\+\+BODIES$<$=0) \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\textquotesingle{}El número de cuerpos calculado desde la cabecera no es un entero positivo.\textquotesingle{})
+\item 
+catch ME \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}} (\mbox{[}\textquotesingle{}No se pudo leer la cabecera del archivo para determinar N. Error\+:\textquotesingle{}, ME.\+message\mbox{]})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a9354591c8e18676acf5573494d696704}{if}} (\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\+\_\+3d}}) \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\+\_\+string}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_add1fedafa74e10a7abfc1737f772b0f8}{plot3}} (data(\+:, idx\+\_\+x), data(\+:, \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\+\_\+y}}), data(\+:, \mbox{\hyperlink{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}{idx\+\_\+z}}), \textquotesingle{}Line\+Width\textquotesingle{}, 2, \textquotesingle{}Color\textquotesingle{}, \mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},\+:))
+\item 
+end \mbox{\hyperlink{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}{xlabel}} (\textquotesingle{}X\textquotesingle{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917}{ylabel}} (\textquotesingle{}Y\textquotesingle{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a0faf5a6161e9f8cdb658831d495b6652}{zlabel}} (\textquotesingle{}Z\textquotesingle{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e}{title}} (sprintf(\textquotesingle{}Trayectorias(Vista 3D, N=\%d Cuerpos)\textquotesingle{}, N\+\_\+\+BODIES))
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_af1f541d04433e3a53c08be957cdbab91}{view}} (3)
+\item 
+else \mbox{\hyperlink{plot__gravedad_8m_a1b86f6277235d61d35cc285e3af2a26d}{disp}} (\textquotesingle{}Generando gráfico de trayectorias 2D...\textquotesingle{})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}{plot}} (data(\+:, idx\+\_\+x), data(\+:, \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\+\_\+y}}), \textquotesingle{}Line\+Width\textquotesingle{}, 2, \textquotesingle{}Color\textquotesingle{}, \mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},\+:))
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a0d66112b9a0ace9af79b0d43f612a927}{title}} (sprintf(\textquotesingle{}Trayectorias(Vista 2D, N=\%d Cuerpos)\textquotesingle{}, N\+\_\+\+BODIES))
+\item 
+end \mbox{\hyperlink{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3}{legend}} (\mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_aa7229ae9cbd98ff5a82dda876bcef10f}{print}} (\mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\+\_\+path\+\_\+traj}}, \textquotesingle{}-\/dpng\textquotesingle{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}{clc}}
+\item 
+close \mbox{\hyperlink{plot__gravedad_8m_a00a349297fa58bc80ff5329e25dcfe28}{all}}
+\item 
+Función para buscar archivo de datos function \mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{filename}}
+\item 
+for \mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a9717e7bbecb906637e86cef6da3d83c2}{return}}
+\item 
+end end end Función para encontrar directorio de resultados function \mbox{\hyperlink{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}{results\+\_\+dir}}
+\item 
+end end Si no \mbox{\hyperlink{plot__gravedad_8m_a4993fa51c1904460598d64b393b323c9}{existe}}
+\item 
+Último recurso end end end \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}}
+\item 
+end \mbox{\hyperlink{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}{RESULTS\+\_\+\+DIR}} = find\+\_\+results\+\_\+dir()
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{Z\+\_\+\+THRESHOLD}} = 1e-\/6
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \mbox{\hyperlink{plot__gravedad_8m_a42638690254f30fe757ce1d9bc8c52ed}{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \mbox{\hyperlink{plot__gravedad_8m_a74981243993ab8ac2afb52f00817b21d}{r}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{if}}(fid==-\/1) \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\mbox{[} \textquotesingle{}No se pudo abrir el archivo end \mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{header\+\_\+line}} = fgetl(fid)
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{columns}} = strsplit(strtrim(\mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{header\+\_\+line}}(2\+:end)))
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{TOTAL\+\_\+\+COLS}} = numel(\mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{columns}})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}{N\+\_\+\+BODIES}} = (\mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{TOTAL\+\_\+\+COLS}} -\/ 4) / 4
+\item 
+end \mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{z\+\_\+col\+\_\+indices}} = 4\+:3\+:(1 + 3\texorpdfstring{$\ast$}{*}N\+\_\+\+BODIES)
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\+\_\+data}} = data(\+:, \mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{z\+\_\+col\+\_\+indices}})
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\+\_\+range}} = max(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\+\_\+data}}(\+:)) -\/ min(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\+\_\+data}}(\+:))
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\+\_\+3d}} = \mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\+\_\+range}} $>$ \mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{Z\+\_\+\+THRESHOLD}}
+\item 
+else \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\+\_\+string}} = \textquotesingle{}2D\textquotesingle{}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \mbox{\hyperlink{plot__gravedad_8m_a9b667d3f8e7b841424735347f51adc1c}{\+\_\+\+\_\+pad1\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \mbox{\hyperlink{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}{off}}
+\item 
+hold \mbox{\hyperlink{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}{on}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}} = lines(N\+\_\+\+BODIES)
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}} = \{\}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\+\_\+y}} = 3 + 3\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1)
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}{idx\+\_\+z}} = 4 + 3\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1)
+\item 
+axis \mbox{\hyperlink{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561}{equal}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\+\_\+path\+\_\+traj}} = \mbox{[}RESULTS\+\_\+\+DIR, sprintf(\textquotesingle{}trayectorias\+\_\+octave\+\_\+\%s\+\_\+\%d.\+png\textquotesingle{}, \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\+\_\+string}}, N\+\_\+\+BODIES)\mbox{]}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \mbox{\hyperlink{plot__gravedad_8m_a0fdebcf1e873250e939cc188775d748a}{\+\_\+\+\_\+pad2\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d}{col\+\_\+u\+\_\+idx}} = col\+\_\+k\+\_\+idx + 1
+\item 
+\mbox{\hyperlink{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}{col\+\_\+e\+\_\+idx}} = col\+\_\+k\+\_\+idx + 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{plot__gravedad_8m_a1b86f6277235d61d35cc285e3af2a26d}\label{plot__gravedad_8m_a1b86f6277235d61d35cc285e3af2a26d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!disp@{disp}}
+\index{disp@{disp}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{disp()}{disp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily else disp (\begin{DoxyParamCaption}\item[{\textquotesingle{}Generando gráfico de trayectorias 2D...\textquotesingle{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21}\label{plot__gravedad_8m_aa3a2cff27982778392e760ae6741ce21} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!disp@{disp}}
+\index{disp@{disp}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{disp()}{disp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily disp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}\label{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!error@{error}}
+\index{error@{error}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily end catch ME error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a5e769bbbabcaddc548203741c7100228}\label{plot__gravedad_8m_a5e769bbbabcaddc548203741c7100228} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!fclose@{fclose}}
+\index{fclose@{fclose}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{fclose()}{fclose()}}
+{\footnotesize\ttfamily fclose (\begin{DoxyParamCaption}\item[{fid}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a9354591c8e18676acf5573494d696704}\label{plot__gravedad_8m_a9354591c8e18676acf5573494d696704} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!if@{if}}
+\index{if@{if}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}{is\+\_\+3d}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}\label{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!if@{if}}
+\index{if@{if}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{mod(N\+\_\+\+BODIES, 1) \texorpdfstring{$\sim$}{\string~}}]{ = {\ttfamily 0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}N\+\_\+BODIES$<$=0} }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_ab3e4ff82a3fa454727294212abb9d859}\label{plot__gravedad_8m_ab3e4ff82a3fa454727294212abb9d859} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!isempty@{isempty}}
+\index{isempty@{isempty}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{isempty()}{isempty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{if}} isempty (\begin{DoxyParamCaption}\item[{FILENAME}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3}\label{plot__gravedad_8m_a62dc7ab8a4e9121628dafcb1753d89f3} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!legend@{legend}}
+\index{legend@{legend}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{legend()}{legend()}}
+{\footnotesize\ttfamily end legend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}{legends}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745}\label{plot__gravedad_8m_ae60927f389253e48e21b4600ea217745} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{mkdir()}{mkdir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily end end Si no intentar crear try mkdir (\begin{DoxyParamCaption}\item[{"{}../results/"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_ae78249d469b16f73172c1e93fbb7bc71}\label{plot__gravedad_8m_ae78249d469b16f73172c1e93fbb7bc71} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{mkdir()}{mkdir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily catch try mkdir (\begin{DoxyParamCaption}\item[{"{}results/"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387}\label{plot__gravedad_8m_a0eb4a39101a2e7cdbe32ef0209866387} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!plot@{plot}}
+\index{plot@{plot}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{plot()}{plot()}}
+{\footnotesize\ttfamily plot (\begin{DoxyParamCaption}\item[{data(\+:, idx\+\_\+x)}]{,  }\item[{data(\+:, \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\+\_\+y}})}]{,  }\item[{\textquotesingle{}Line\+Width\textquotesingle{}}]{,  }\item[{2}]{,  }\item[{\textquotesingle{}Color\textquotesingle{}}]{,  }\item[{\mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},\+:)}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_add1fedafa74e10a7abfc1737f772b0f8}\label{plot__gravedad_8m_add1fedafa74e10a7abfc1737f772b0f8} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!plot3@{plot3}}
+\index{plot3@{plot3}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{plot3()}{plot3()}}
+{\footnotesize\ttfamily plot3 (\begin{DoxyParamCaption}\item[{data(\+:, idx\+\_\+x)}]{,  }\item[{data(\+:, \mbox{\hyperlink{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}{idx\+\_\+y}})}]{,  }\item[{data(\+:, \mbox{\hyperlink{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}{idx\+\_\+z}})}]{,  }\item[{\textquotesingle{}Line\+Width\textquotesingle{}}]{,  }\item[{2}]{,  }\item[{\textquotesingle{}Color\textquotesingle{}}]{,  }\item[{\mbox{\hyperlink{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}{colors}}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}},\+:)}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_aa7229ae9cbd98ff5a82dda876bcef10f}\label{plot__gravedad_8m_aa7229ae9cbd98ff5a82dda876bcef10f} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!print@{print}}
+\index{print@{print}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}{output\+\_\+path\+\_\+traj}}}]{,  }\item[{\textquotesingle{}-\/dpng\textquotesingle{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a0d66112b9a0ace9af79b0d43f612a927}\label{plot__gravedad_8m_a0d66112b9a0ace9af79b0d43f612a927} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!title@{title}}
+\index{title@{title}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{title()}{title()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily title (\begin{DoxyParamCaption}\item[{sprintf( \textquotesingle{}Trayectorias(Vista 2D, N=\%d Cuerpos)\textquotesingle{}, N\+\_\+\+BODIES)}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e}\label{plot__gravedad_8m_ac9a399a963d1e2e132ed1db6fc1b623e} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!title@{title}}
+\index{title@{title}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{title()}{title()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily title (\begin{DoxyParamCaption}\item[{sprintf( \textquotesingle{}Trayectorias(Vista 3D, N=\%d Cuerpos)\textquotesingle{}, N\+\_\+\+BODIES)}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_af1f541d04433e3a53c08be957cdbab91}\label{plot__gravedad_8m_af1f541d04433e3a53c08be957cdbab91} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!view@{view}}
+\index{view@{view}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily view (\begin{DoxyParamCaption}\item[{3}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60}\label{plot__gravedad_8m_ae5762d78615fcaab666b3faa306fff60} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!xlabel@{xlabel}}
+\index{xlabel@{xlabel}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{xlabel()}{xlabel()}}
+{\footnotesize\ttfamily end xlabel (\begin{DoxyParamCaption}\item[{\textquotesingle{}X\textquotesingle{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917}\label{plot__gravedad_8m_a44be30ecd4122a8ac3728d1370f7f917} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!ylabel@{ylabel}}
+\index{ylabel@{ylabel}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{ylabel()}{ylabel()}}
+{\footnotesize\ttfamily ylabel (\begin{DoxyParamCaption}\item[{\textquotesingle{}Y\textquotesingle{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{plot__gravedad_8m_a0faf5a6161e9f8cdb658831d495b6652}\label{plot__gravedad_8m_a0faf5a6161e9f8cdb658831d495b6652} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!zlabel@{zlabel}}
+\index{zlabel@{zlabel}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{zlabel()}{zlabel()}}
+{\footnotesize\ttfamily zlabel (\begin{DoxyParamCaption}\item[{\textquotesingle{}Z\textquotesingle{}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{plot__gravedad_8m_a42638690254f30fe757ce1d9bc8c52ed}\label{plot__gravedad_8m_a42638690254f30fe757ce1d9bc8c52ed} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00071}{71}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a9b667d3f8e7b841424735347f51adc1c}\label{plot__gravedad_8m_a9b667d3f8e7b841424735347f51adc1c} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00112}{112}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a0fdebcf1e873250e939cc188775d748a}\label{plot__gravedad_8m_a0fdebcf1e873250e939cc188775d748a} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!\_\_pad2\_\_@{\_\_pad2\_\_}}
+\index{\_\_pad2\_\_@{\_\_pad2\_\_}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{\_\_pad2\_\_}{\_\_pad2\_\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} \+\_\+\+\_\+pad2\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00148}{148}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a00a349297fa58bc80ff5329e25dcfe28}\label{plot__gravedad_8m_a00a349297fa58bc80ff5329e25dcfe28} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!all@{all}}
+\index{all@{all}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{all}{all}}
+{\footnotesize\ttfamily close all}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00009}{9}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a3f3d3b13a15c726d6aa03db3dd0d6377}\label{plot__gravedad_8m_a3f3d3b13a15c726d6aa03db3dd0d6377} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!clc@{clc}}
+\index{clc@{clc}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{clc}{clc}}
+{\footnotesize\ttfamily clc}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{====================================================================}
+\DoxyCodeLine{\%\ Script\ de\ Octave/MATLAB\ INTELIGENTE\ y\ CORREGIDO\ para\ N-\/cuerpos}
+\DoxyCodeLine{\%\ -\/\ No\ necesita\ argumentos.}
+\DoxyCodeLine{\%\ -\/\ Detecta\ \textcolor{charliteral}{'N'}\ y\ la\ dimensionalidad\ (2D/3D)\ automáticamente.}
+\DoxyCodeLine{\%\ -\/\ Maneja\ rutas\ relativas\ desde\ diferentes\ directorios.}
+\DoxyCodeLine{\%\ ====================================================================}
+\DoxyCodeLine{}
+\DoxyCodeLine{\%\ -\/-\/-\/\ Limpieza\ del\ entorno\ -\/-\/-\/}
+\DoxyCodeLine{clear}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00009}{9}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d}\label{plot__gravedad_8m_a790a0716a21170423ea9a5507ab23d3d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!col\_e\_idx@{col\_e\_idx}}
+\index{col\_e\_idx@{col\_e\_idx}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{col\_e\_idx}{col\_e\_idx}}
+{\footnotesize\ttfamily col\+\_\+e\+\_\+idx = col\+\_\+k\+\_\+idx + 2}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00151}{151}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d}\label{plot__gravedad_8m_a2820c4a5e4cdc54d0b00739b4a01443d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!col\_u\_idx@{col\_u\_idx}}
+\index{col\_u\_idx@{col\_u\_idx}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{col\_u\_idx}{col\_u\_idx}}
+{\footnotesize\ttfamily col\+\_\+u\+\_\+idx = col\+\_\+k\+\_\+idx + 1}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00150}{150}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3}\label{plot__gravedad_8m_aedd64c3f92da850b93776c65fd1cced3} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!colors@{colors}}
+\index{colors@{colors}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily colors = lines(N\+\_\+\+BODIES)}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00115}{115}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}\label{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!columns@{columns}}
+\index{columns@{columns}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{columns}{columns}}
+{\footnotesize\ttfamily columns = strsplit(strtrim(\mbox{\hyperlink{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}{header\+\_\+line}}(2\+:end)))}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00080}{80}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}\label{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!dim\_string@{dim\_string}}
+\index{dim\_string@{dim\_string}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{dim\_string}{dim\_string}}
+{\footnotesize\ttfamily else dim\+\_\+string = \textquotesingle{}2D\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00108}{108}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561}\label{plot__gravedad_8m_afeaa7ecdd726aa1950ba61dc659eb561} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!equal@{equal}}
+\index{equal@{equal}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{equal}{equal}}
+{\footnotesize\ttfamily axis equal}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00128}{128}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a4993fa51c1904460598d64b393b323c9}\label{plot__gravedad_8m_a4993fa51c1904460598d64b393b323c9} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!existe@{existe}}
+\index{existe@{existe}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{existe}{existe}}
+{\footnotesize\ttfamily end end Si no existe}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00044}{44}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}\label{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!filename@{filename}}
+\index{filename@{filename}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily filename}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ find\_data\_file()}
+\DoxyCodeLine{\ \ \ \ possible\_paths\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/sim\_data.dat"{}},\ \ \ \ \ \ \%\ Desde\ directorio\ raíz}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/sim\_data.dat"{}},\ \ \ \%\ Desde\ test/\ o\ scripts/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/sim\_data.dat"{}}\ \%\ Desde\ subdirectorios\ anidados}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00012}{12}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f}\label{plot__gravedad_8m_a80482cc85e2fffcb5de6c5b02b06fd7f} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!header\_line@{header\_line}}
+\index{header\_line@{header\_line}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{header\_line}{header\_line}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a5b1fdf3536b35b2a125958132fe6d305}{if}} (fid == -\/1) \mbox{\hyperlink{plot__gravedad_8m_a48710ed22824ce7d11e47cb85ad924b0}{error}}(\mbox{[}\textquotesingle{}No se pudo abrir el archivo end header\+\_\+line = fgetl(fid)}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00077}{77}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}\label{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!i@{i}}
+\index{i@{i}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily for i}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ 1:length(possible\_paths)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ exist(possible\_paths\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\},\ \textcolor{stringliteral}{'file'})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{plot__gravedad_8m_a2ff994e16bf9521154de4cf659a3b689}{filename}}\ =\ possible\_paths\{\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00020}{20}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b}\label{plot__gravedad_8m_ac440776ab964010c18317062c2941e5b} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!idx\_y@{idx\_y}}
+\index{idx\_y@{idx\_y}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{idx\_y}{idx\_y}}
+{\footnotesize\ttfamily idx\+\_\+y = 3 + 3\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1)}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00121}{121}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d}\label{plot__gravedad_8m_aa71ddbb39d55d11b9a9bd160c1c03a0d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!idx\_z@{idx\_z}}
+\index{idx\_z@{idx\_z}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{idx\_z}{idx\_z}}
+{\footnotesize\ttfamily idx\+\_\+z = 4 + 3\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{plot__gravedad_8m_a6f6ccfcf58b31cb6412107d9d5281426}{i}}-\/1)}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00121}{121}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214}\label{plot__gravedad_8m_a9d65bedd294151c2eb9db70b4563b214} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!is\_3d@{is\_3d}}
+\index{is\_3d@{is\_3d}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{is\_3d}{is\_3d}}
+{\footnotesize\ttfamily is\+\_\+3d = \mbox{\hyperlink{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}{z\+\_\+range}} $>$ \mbox{\hyperlink{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}{Z\+\_\+\+THRESHOLD}}}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00103}{103}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8}\label{plot__gravedad_8m_a74236af7d64bc2bf55e037f130993be8} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!legends@{legends}}
+\index{legends@{legends}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{legends}{legends}}
+{\footnotesize\ttfamily legends = \{\}}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00116}{116}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9}\label{plot__gravedad_8m_ad5ef43e956f2baf6d19f1a1047d119e9} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!N\_BODIES@{N\_BODIES}}
+\index{N\_BODIES@{N\_BODIES}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{N\_BODIES}{N\_BODIES}}
+{\footnotesize\ttfamily N\+\_\+\+BODIES = (\mbox{\hyperlink{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}{TOTAL\+\_\+\+COLS}} -\/ 4) / 4}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00082}{82}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf}\label{plot__gravedad_8m_a835accca41274fb237599d9b3c117fcf} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!off@{off}}
+\index{off@{off}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{off}{off}}
+{\footnotesize\ttfamily hold off}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00113}{113}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0}\label{plot__gravedad_8m_ac88aa5a5c67076097e4a0e87a0709ea0} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!on@{on}}
+\index{on@{on}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{on}{on}}
+{\footnotesize\ttfamily grid on}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00114}{114}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e}\label{plot__gravedad_8m_a3b8c125ef281b7a1937a4886d2e9584e} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!output\_path\_traj@{output\_path\_traj}}
+\index{output\_path\_traj@{output\_path\_traj}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{output\_path\_traj}{output\_path\_traj}}
+{\footnotesize\ttfamily output\+\_\+path\+\_\+traj = \mbox{[}RESULTS\+\_\+\+DIR, sprintf(\textquotesingle{}trayectorias\+\_\+octave\+\_\+\%s\+\_\+\%d.\+png\textquotesingle{}, \mbox{\hyperlink{plot__gravedad_8m_ae3afb2aa42463744d8b4941b82c302f6}{dim\+\_\+string}}, N\+\_\+\+BODIES)\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00144}{144}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}\label{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!Paso@{Paso}}
+\index{Paso@{Paso}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{Paso}{Paso}}
+{\footnotesize\ttfamily end Paso}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00058}{58}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a74981243993ab8ac2afb52f00817b21d}\label{plot__gravedad_8m_a74981243993ab8ac2afb52f00817b21d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!r@{r}}
+\index{r@{r}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily \mbox{\hyperlink{plot__gravedad_8m_a4cb50d992e6a2c2e29111bc8d77ad7ea}{Paso}} r}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00073}{73}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7}\label{plot__gravedad_8m_a60592c772b7d9bace788ad5c015963a7} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!results\_dir@{results\_dir}}
+\index{results\_dir@{results\_dir}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{results\_dir}{results\_dir}}
+{\footnotesize\ttfamily catch results\+\_\+dir}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ find\_results\_dir()}
+\DoxyCodeLine{\ \ \ \ possible\_dirs\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/"{}},\ \ \ \ \ \ \%\ Desde\ directorio\ raíz}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/"{}},\ \ \ \%\ Desde\ test/\ o\ scripts/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/"{}}\ \%\ Desde\ subdirectorios\ anidados}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00029}{29}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677}\label{plot__gravedad_8m_a2bb1b5cf1bd329e43f24bd3c59e1f677} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!RESULTS\_DIR@{RESULTS\_DIR}}
+\index{RESULTS\_DIR@{RESULTS\_DIR}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{RESULTS\_DIR}{RESULTS\_DIR}}
+{\footnotesize\ttfamily end RESULTS\+\_\+\+DIR = find\+\_\+results\+\_\+dir()}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00064}{64}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a9717e7bbecb906637e86cef6da3d83c2}\label{plot__gravedad_8m_a9717e7bbecb906637e86cef6da3d83c2} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!return@{return}}
+\index{return@{return}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{return}{return}}
+{\footnotesize\ttfamily return}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00023}{23}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a}\label{plot__gravedad_8m_acc582d87d00ef0d99342e9548949ab5a} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!TOTAL\_COLS@{TOTAL\_COLS}}
+\index{TOTAL\_COLS@{TOTAL\_COLS}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_COLS}{TOTAL\_COLS}}
+{\footnotesize\ttfamily TOTAL\+\_\+\+COLS = numel(\mbox{\hyperlink{plot__gravedad_8m_a2236b72f560276e1c4ca3409b8b3ecb5}{columns}})}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00081}{81}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}\label{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!z\_col\_indices@{z\_col\_indices}}
+\index{z\_col\_indices@{z\_col\_indices}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{z\_col\_indices}{z\_col\_indices}}
+{\footnotesize\ttfamily end z\+\_\+col\+\_\+indices = 4\+:3\+:(1 + 3\texorpdfstring{$\ast$}{*}N\+\_\+\+BODIES)}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00100}{100}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}\label{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!z\_data@{z\_data}}
+\index{z\_data@{z\_data}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{z\_data}{z\_data}}
+{\footnotesize\ttfamily z\+\_\+data = data(\+:, \mbox{\hyperlink{plot__gravedad_8m_a8c132a3040266402a8825d72ad2a2bf7}{z\+\_\+col\+\_\+indices}})}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00101}{101}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972}\label{plot__gravedad_8m_a8bbbf6bb6f57d414d511c691d46ac972} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!z\_range@{z\_range}}
+\index{z\_range@{z\_range}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{z\_range}{z\_range}}
+{\footnotesize\ttfamily z\+\_\+range = max(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\+\_\+data}}(\+:)) -\/ min(\mbox{\hyperlink{plot__gravedad_8m_ab822b5064f95d41ee82957963c1ee13d}{z\+\_\+data}}(\+:))}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00102}{102}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+
+\Hypertarget{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09}\label{plot__gravedad_8m_aff28ccee32ad9524b189128a01854b09} 
+\index{plot\_gravedad.m@{plot\_gravedad.m}!Z\_THRESHOLD@{Z\_THRESHOLD}}
+\index{Z\_THRESHOLD@{Z\_THRESHOLD}!plot\_gravedad.m@{plot\_gravedad.m}}
+\doxysubsubsection{\texorpdfstring{Z\_THRESHOLD}{Z\_THRESHOLD}}
+{\footnotesize\ttfamily Z\+\_\+\+THRESHOLD = 1e-\/6}
+
+
+
+Definition at line \mbox{\hyperlink{plot__gravedad_8m_source_l00065}{65}} of file \mbox{\hyperlink{plot__gravedad_8m_source}{plot\+\_\+gravedad.\+m}}.
+

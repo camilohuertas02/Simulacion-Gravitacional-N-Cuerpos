@@ -1,0 +1,70 @@
+\doxysection{testing.\+h}
+\hypertarget{testing_8h_source}{}\label{testing_8h_source}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/test/testing.h@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/test/testing.h}}
+\mbox{\hyperlink{testing_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00008}00008\ \textcolor{preprocessor}{\#ifndef\ TESTING\_H}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00009}00009\ \textcolor{preprocessor}{\#define\ TESTING\_H}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00022}00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceTesting}{Testing}}\ \{}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00023}00023\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00028}\mbox{\hyperlink{structTesting_1_1DatosCuerpo}{00028}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTesting_1_1DatosCuerpo}{DatosCuerpo}}\ \{}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00029}\mbox{\hyperlink{structTesting_1_1DatosCuerpo_aa337433af030f8c864258a1cbb5bcfab}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_aa337433af030f8c864258a1cbb5bcfab}{masa}};\ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00030}\mbox{\hyperlink{structTesting_1_1DatosCuerpo_a7c957f064876b107afff86cb640d02b7}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_a7c957f064876b107afff86cb640d02b7}{radio}};\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00031}\mbox{\hyperlink{structTesting_1_1DatosCuerpo_acd0161f3903dab91aa9ff759e4bd0316}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_acd0161f3903dab91aa9ff759e4bd0316}{x}},\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_ae1a95d5c618bd18baf644bac9ca6ee1a}{y}},\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_af1587f6a2a0946245c15f81b458ff9e6}{z}};\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00032}\mbox{\hyperlink{structTesting_1_1DatosCuerpo_ad95b3de8609858d17f0eff55d9a5dbb7}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_ad95b3de8609858d17f0eff55d9a5dbb7}{vx}},\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_a23a0f0729fbc01b36e9eb0fe97853605}{vy}},\ \mbox{\hyperlink{structTesting_1_1DatosCuerpo_a000d6f4d77ef39da76c30e92d1e43a71}{vz}};\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00033}00033\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00039}\mbox{\hyperlink{structTesting_1_1SistemaPrueba}{00039}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTesting_1_1SistemaPrueba}{SistemaPrueba}}\ \{}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00040}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_a9e4ac869cb4fca373083b451dd76d509}{00040}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_a9e4ac869cb4fca373083b451dd76d509}{nombre}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00041}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_ac2c6a8be60837278799d8ca5676e87a1}{00041}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_ac2c6a8be60837278799d8ca5676e87a1}{descripcion}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00042}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_a106db063086bb5858206aa96ab3c67d8}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_a106db063086bb5858206aa96ab3c67d8}{n\_cuerpos}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00043}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_a5664436e1ab6af380404342aa27d602d}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_a5664436e1ab6af380404342aa27d602d}{dt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00044}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_a5ff069d9d99f533f998902d5013fad0d}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_a5ff069d9d99f533f998902d5013fad0d}{t\_max}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00045}\mbox{\hyperlink{structTesting_1_1SistemaPrueba_aea0a6ad63b80cc62489c778f24edee0e}{00045}}\ \ \ \ \ \ \ \ \ std::vector<DatosCuerpo>\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba_aea0a6ad63b80cc62489c778f24edee0e}{cuerpos}};\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00046}00046\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00047}00047\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a705b3b00ac4bbc83bf51a6340b10979f}{mostrarMenuTesting}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceTesting_a32a38ed9f0f62f62d783c5f5a724e6bd}{ejecutarComando}}(\textcolor{keyword}{const}\ std::string\&\ comando);}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00062}00062\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0}{probarPython}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00069}00069\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099}{probarOctave}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00076}00076\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a9d64c7d5dcd359640782816bc14185db}{probarGnuplot}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00083}00083\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_aed2161604c65f7c66691328eed8bb98e}{probarTodasLasHerramientas}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_ac7a11550dca1a637411b8cf518657230}{probarGIFPython}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00097}00097\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a7a3d376bf59511f4d9bd3537935a0e79}{probarGIFGnuplot}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00105}00105\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_aa0be7313180c17e921d790efa293a185}{probarTodasLasHerramientasConGIF}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00111}00111\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a42a7ebe3a4bb3dc1252924ebd5e53385}{verArchivosResultados}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00117}00117\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_ac37b13f203def54a49a9afd91039e348}{ejecutarModoTesting}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00123}00123\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00129}00129\ \ \ \ \ std::vector<SistemaPrueba>\ \mbox{\hyperlink{namespaceTesting_af8cba327b931474a7bb1b1c0ff5e0dc1}{obtenerSistemasPredefinidos}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00130}00130\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a006d04ac6ba48f82f8d91e1831238b29}{mostrarSistemasPredefinidos}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00136}00136\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_a5579a91cd3913733ea45f8533dfb218d}{generarArchivoEntrada}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{SistemaPrueba}}\&\ sistema);}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00143}00143\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_ae5580bcb995f4636febb18a0f2421b54}{ejecutarSimulacionConSistema}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{SistemaPrueba}}\&\ sistema);}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00152}00152\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceTesting_aeb820c19468fe2ccc62a3d0b7abf211e}{verificarFormatoArchivo}}();}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00159}00159\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00160}00160\ \}\ \textcolor{comment}{//\ namespace\ Testing}}
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{testing_8h_source_l00162}00162\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TESTING\_H}}
+
+\end{DoxyCode}

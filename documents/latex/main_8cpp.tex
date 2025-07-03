@@ -1,0 +1,273 @@
+\doxysection{/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/src/main.cpp@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/src/main.cpp}}
+
+
+Programa principal para simulación gravitacional N-\/cuerpos.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include "{}vector3\+D.\+h"{}}\newline
+{\ttfamily \#include "{}Cuerpo.\+h"{}}\newline
+{\ttfamily \#include "{}utilidades.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a47deaef0eedddb2a57733347ab6ecebd}{solicitar\+Datos}} ()
+\begin{DoxyCompactList}\small\item\em Solicita y valida los datos de entrada del usuario. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a8c0e338f803dc6c9982ca6339e6b563b}{verificar\+Datos}} ()
+\begin{DoxyCompactList}\small\item\em Verifica la validez de los datos ingresados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a51fb20e66c0bdd217ecc470489816ae5}{calcular\+Todas\+Las\+Fuerzas}} (std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&cuerpos\+\_\+actuales, std\+::vector$<$ \mbox{\hyperlink{classvector3D}{vector3D}} $>$ \&fuerzas\+\_\+a\+\_\+calcular)
+\begin{DoxyCompactList}\small\item\em Calcula las fuerzas gravitacionales para todos los cuerpos. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cpp_ad58a9747a11816f6d536d8585227f1e5}{calcular\+Energia\+Cinetica\+Total}} (const std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&cuerpos\+\_\+actuales)
+\begin{DoxyCompactList}\small\item\em Calcula la energía cinética total del sistema. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cpp_aa8a898bd736833409aa78fb9e7e85cf4}{calcular\+Energia\+Potencial\+Total}} (const std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&cuerpos\+\_\+actuales)
+\begin{DoxyCompactList}\small\item\em Calcula la energía potencial gravitacional total. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ae69a3e92c11350c3cee1690374e75bac}{graficar\+Resultados}} ()
+\begin{DoxyCompactList}\small\item\em Interfaz para seleccionar herramienta de graficación. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_aca71fa1951ea7963ae2f1dcf6b26f271}{N\+\_\+cuerpos}}
+\begin{DoxyCompactList}\small\item\em Variables globales para la simulación. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cpp_a2e20cff27514a645280dd5aa0fb53328}{dt\+\_\+sim}}
+\begin{DoxyCompactList}\small\item\em Paso de tiempo \mbox{[}unidades de tiempo\mbox{]}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cpp_a6d69c5e8b86304dfcd1ef80fdc762bf5}{t\+\_\+max\+\_\+sim}}
+\begin{DoxyCompactList}\small\item\em Tiempo total de simulación \mbox{[}unidades de tiempo\mbox{]}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \mbox{\hyperlink{main_8cpp_a30d5168a1f1b6d913b3613af8e0af6de}{planetas}}
+\begin{DoxyCompactList}\small\item\em Contenedor de todos los cuerpos. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classvector3D}{vector3D}} $>$ \mbox{\hyperlink{main_8cpp_ae1ebc77a405e8e2fd86f353804c98c58}{fuerzas\+\_\+siguientes}}
+\begin{DoxyCompactList}\small\item\em Fuerzas F(t+dt) para algoritmo de Verlet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Programa principal para simulación gravitacional N-\/cuerpos. 
+
+Implementa el algoritmo de Verlet para resolver el problema gravitacional de N cuerpos con conservación de energía \begin{DoxyAuthor}{Author}
+Isabel Nieto \& Camilo Huertas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ad58a9747a11816f6d536d8585227f1e5}\label{main_8cpp_ad58a9747a11816f6d536d8585227f1e5} 
+\index{main.cpp@{main.cpp}!calcularEnergiaCineticaTotal@{calcularEnergiaCineticaTotal}}
+\index{calcularEnergiaCineticaTotal@{calcularEnergiaCineticaTotal}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{calcularEnergiaCineticaTotal()}{calcularEnergiaCineticaTotal()}}
+{\footnotesize\ttfamily double calcular\+Energia\+Cinetica\+Total (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&}]{cuerpos\+\_\+actuales }\end{DoxyParamCaption})}
+
+
+
+Calcula la energía cinética total del sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cuerpos\+\_\+actuales} & Vector de cuerpos con velocidades actuales \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energía cinética total K = Σ(½mᵢvᵢ²) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_aa8a898bd736833409aa78fb9e7e85cf4}\label{main_8cpp_aa8a898bd736833409aa78fb9e7e85cf4} 
+\index{main.cpp@{main.cpp}!calcularEnergiaPotencialTotal@{calcularEnergiaPotencialTotal}}
+\index{calcularEnergiaPotencialTotal@{calcularEnergiaPotencialTotal}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{calcularEnergiaPotencialTotal()}{calcularEnergiaPotencialTotal()}}
+{\footnotesize\ttfamily double calcular\+Energia\+Potencial\+Total (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&}]{cuerpos\+\_\+actuales }\end{DoxyParamCaption})}
+
+
+
+Calcula la energía potencial gravitacional total. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cuerpos\+\_\+actuales} & Vector de cuerpos con posiciones actuales \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Energía potencial total U = -\/Σᵢ\texorpdfstring{$<$}{<}ⱼ(Gmᵢmⱼ/rᵢⱼ) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_a51fb20e66c0bdd217ecc470489816ae5}\label{main_8cpp_a51fb20e66c0bdd217ecc470489816ae5} 
+\index{main.cpp@{main.cpp}!calcularTodasLasFuerzas@{calcularTodasLasFuerzas}}
+\index{calcularTodasLasFuerzas@{calcularTodasLasFuerzas}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{calcularTodasLasFuerzas()}{calcularTodasLasFuerzas()}}
+{\footnotesize\ttfamily void calcular\+Todas\+Las\+Fuerzas (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classCuerpo}{Cuerpo}} $>$ \&}]{cuerpos\+\_\+actuales,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classvector3D}{vector3D}} $>$ \&}]{fuerzas\+\_\+a\+\_\+calcular }\end{DoxyParamCaption})}
+
+
+
+Calcula las fuerzas gravitacionales para todos los cuerpos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cuerpos\+\_\+actuales} & Vector de cuerpos con posiciones actuales \\
+\hline
+{\em fuerzas\+\_\+a\+\_\+calcular} & Vector donde se almacenan las fuerzas calculadas\\
+\hline
+\end{DoxyParams}
+Implementa la suma de fuerzas N-\/cuerpos evitando doble conteo \begin{DoxyNote}{Note}
+Complejidad\+: O(N²) donde N es el número de cuerpos 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_ae69a3e92c11350c3cee1690374e75bac}\label{main_8cpp_ae69a3e92c11350c3cee1690374e75bac} 
+\index{main.cpp@{main.cpp}!graficarResultados@{graficarResultados}}
+\index{graficarResultados@{graficarResultados}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{graficarResultados()}{graficarResultados()}}
+{\footnotesize\ttfamily void graficar\+Resultados (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interfaz para seleccionar herramienta de graficación. 
+
+Permite elegir entre Gnuplot, Python/\+Matplotlib u Octave 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00204}{204}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00257}{257}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_a47deaef0eedddb2a57733347ab6ecebd}\label{main_8cpp_a47deaef0eedddb2a57733347ab6ecebd} 
+\index{main.cpp@{main.cpp}!solicitarDatos@{solicitarDatos}}
+\index{solicitarDatos@{solicitarDatos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{solicitarDatos()}{solicitarDatos()}}
+{\footnotesize\ttfamily void solicitar\+Datos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Solicita y valida los datos de entrada del usuario. 
+
+Pide número de cuerpos, propiedades físicas y parámetros de simulación \begin{DoxyPostcond}{Postcondition}
+Todos los vectores globales quedan inicializados 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_a8c0e338f803dc6c9982ca6339e6b563b}\label{main_8cpp_a8c0e338f803dc6c9982ca6339e6b563b} 
+\index{main.cpp@{main.cpp}!verificarDatos@{verificarDatos}}
+\index{verificarDatos@{verificarDatos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{verificarDatos()}{verificarDatos()}}
+{\footnotesize\ttfamily bool verificar\+Datos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifica la validez de los datos ingresados. 
+
+\begin{DoxyReturn}{Returns}
+true si todos los datos son válidos, false en caso contrario
+\end{DoxyReturn}
+Verifica masas positivas y que no haya cuerpos en la misma posición 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a2e20cff27514a645280dd5aa0fb53328}\label{main_8cpp_a2e20cff27514a645280dd5aa0fb53328} 
+\index{main.cpp@{main.cpp}!dt\_sim@{dt\_sim}}
+\index{dt\_sim@{dt\_sim}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dt\_sim}{dt\_sim}}
+{\footnotesize\ttfamily double dt\+\_\+sim}
+
+
+
+Paso de tiempo \mbox{[}unidades de tiempo\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_ae1ebc77a405e8e2fd86f353804c98c58}\label{main_8cpp_ae1ebc77a405e8e2fd86f353804c98c58} 
+\index{main.cpp@{main.cpp}!fuerzas\_siguientes@{fuerzas\_siguientes}}
+\index{fuerzas\_siguientes@{fuerzas\_siguientes}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{fuerzas\_siguientes}{fuerzas\_siguientes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classvector3D}{vector3D}}$>$ fuerzas\+\_\+siguientes}
+
+
+
+Fuerzas F(t+dt) para algoritmo de Verlet. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_aca71fa1951ea7963ae2f1dcf6b26f271}\label{main_8cpp_aca71fa1951ea7963ae2f1dcf6b26f271} 
+\index{main.cpp@{main.cpp}!N\_cuerpos@{N\_cuerpos}}
+\index{N\_cuerpos@{N\_cuerpos}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{N\_cuerpos}{N\_cuerpos}}
+{\footnotesize\ttfamily int N\+\_\+cuerpos}
+
+
+
+Variables globales para la simulación. 
+
+Estas variables mantienen el estado de la simulación Número de cuerpos en la simulación 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_a30d5168a1f1b6d913b3613af8e0af6de}\label{main_8cpp_a30d5168a1f1b6d913b3613af8e0af6de} 
+\index{main.cpp@{main.cpp}!planetas@{planetas}}
+\index{planetas@{planetas}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{planetas}{planetas}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classCuerpo}{Cuerpo}}$>$ planetas}
+
+
+
+Contenedor de todos los cuerpos. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\Hypertarget{main_8cpp_a6d69c5e8b86304dfcd1ef80fdc762bf5}\label{main_8cpp_a6d69c5e8b86304dfcd1ef80fdc762bf5} 
+\index{main.cpp@{main.cpp}!t\_max\_sim@{t\_max\_sim}}
+\index{t\_max\_sim@{t\_max\_sim}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{t\_max\_sim}{t\_max\_sim}}
+{\footnotesize\ttfamily double t\+\_\+max\+\_\+sim}
+
+
+
+Tiempo total de simulación \mbox{[}unidades de tiempo\mbox{]}. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

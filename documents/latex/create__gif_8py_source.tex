@@ -1,0 +1,220 @@
+\doxysection{create\+\_\+gif.\+py}
+\hypertarget{create__gif_8py_source}{}\label{create__gif_8py_source}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/create\_gif.py@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/scripts/create\_gif.py}}
+\mbox{\hyperlink{create__gif_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00001}\mbox{\hyperlink{namespacecreate__gif}{00001}}\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00002}00002\ \textcolor{keyword}{import}\ matplotlib.pyplot\ \textcolor{keyword}{as}\ plt}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00003}00003\ \textcolor{keyword}{import}\ matplotlib.animation\ \textcolor{keyword}{as}\ animation}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00004}00004\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00006}00006\ \textcolor{comment}{\#\ -\/-\/-\/\ Constantes\ y\ Configuración\ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00007}\mbox{\hyperlink{namespacecreate__gif_af8f6c174621ee26bbda21f4d79852f71}{00007}}\ Z\_THRESHOLD\ =\ 1e-\/6\ \ \textcolor{comment}{\#\ Umbral\ para\ considerar\ el\ movimiento\ como\ 2D}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00009}\mbox{\hyperlink{namespacecreate__gif_a0d5444e77a2fc208f3ede2e4f6cb2d0d}{00009}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecreate__gif_a0d5444e77a2fc208f3ede2e4f6cb2d0d}{find\_data\_file}}():}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00010}00010\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Busca\ el\ archivo\ de\ datos\ en\ diferentes\ ubicaciones\ posibles."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00011}00011\ \ \ \ \ possible\_paths\ =\ [}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/sim\_data.dat"{}},\ \ \ \ \ \ \textcolor{comment}{\#\ Desde\ directorio\ raíz}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/sim\_data.dat"{}},\ \ \ \textcolor{comment}{\#\ Desde\ test/\ o\ scripts/}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/sim\_data.dat"{}}\ \textcolor{comment}{\#\ Desde\ subdirectorios\ anidados}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00015}00015\ \ \ \ \ ]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00016}00016\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{for}\ path\ \textcolor{keywordflow}{in}\ possible\_paths:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ os.path.exists(path):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ path}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00020}00020\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00023}\mbox{\hyperlink{namespacecreate__gif_ae3096beb6e858aad9453bd1ffae85478}{00023}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecreate__gif_ae3096beb6e858aad9453bd1ffae85478}{find\_results\_dir}}():}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00024}00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Encuentra\ el\ directorio\ results/\ para\ guardar\ las\ gráficas."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00025}00025\ \ \ \ \ possible\_dirs\ =\ [}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}results/"{}},\ \ \ \ \ \ \textcolor{comment}{\#\ Desde\ directorio\ raíz}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../results/"{}},\ \ \ \textcolor{comment}{\#\ Desde\ test/\ o\ scripts/}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}../../results/"{}}\ \textcolor{comment}{\#\ Desde\ subdirectorios\ anidados}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00029}00029\ \ \ \ \ ]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00030}00030\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{for}\ dir\_path\ \textcolor{keywordflow}{in}\ possible\_dirs:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ os.path.exists(dir\_path):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dir\_path}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00035}00035\ \ \ \ \ \textcolor{comment}{\#\ Si\ no\ existe,\ crear\ en\ la\ ubicación\ más\ probable}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ os.makedirs(\textcolor{stringliteral}{"{}../results/"{}},\ exist\_ok=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}../results/"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ os.makedirs(\textcolor{stringliteral}{"{}results/"{}},\ exist\_ok=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}results/"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}./"{}}\ \ \textcolor{comment}{\#\ Último\ recurso:\ directorio\ actual}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00046}\mbox{\hyperlink{namespacecreate__gif_aeba8abf87bb18fc3649cc69ddc504189}{00046}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecreate__gif_aeba8abf87bb18fc3649cc69ddc504189}{get\_num\_bodies\_from\_header}}(filepath):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00047}00047\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Lee\ la\ primera\ línea\ de\ un\ archivo\ de\ datos\ para\ determinar\ el\ número\ de\ cuerpos."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(filepath,\ \textcolor{stringliteral}{'r'})\ \textcolor{keyword}{as}\ f:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ header\ =\ f.readline()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ num\_cols\ =\ len(header.lstrip(\textcolor{stringliteral}{'\#'}).split())}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ num\_bodies\ =\ (num\_cols\ -\/\ 4)\ //\ 4}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ num\_bodies}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Error\ al\ leer\ la\ cabecera\ del\ archivo\ para\ determinar\ N:\ \{e\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00058}\mbox{\hyperlink{namespacecreate__gif_a6c5eef8be012bed772e43c1c71c147e4}{00058}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecreate__gif_a6c5eef8be012bed772e43c1c71c147e4}{create\_animated\_gif}}():}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00059}00059\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Función\ principal\ que\ carga\ los\ datos\ y\ genera\ un\ GIF\ animado."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00061}00061\ \ \ \ \ \textcolor{comment}{\#\ Buscar\ archivo\ de\ datos}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00062}00062\ \ \ \ \ data\_file\ =\ \mbox{\hyperlink{namespacecreate__gif_a0d5444e77a2fc208f3ede2e4f6cb2d0d}{find\_data\_file}}()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ data\_file\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Error:\ No\ se\ encontró\ el\ archivo\ de\ datos\ en\ ninguna\ ubicación."{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00067}00067\ \ \ \ \ \textcolor{comment}{\#\ Buscar\ directorio\ de\ resultados}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00068}00068\ \ \ \ \ results\_dir\ =\ \mbox{\hyperlink{namespacecreate__gif_ae3096beb6e858aad9453bd1ffae85478}{find\_results\_dir}}()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00069}00069\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00070}00070\ \ \ \ \ print(f\textcolor{stringliteral}{"{}Archivo\ de\ datos\ encontrado:\ \{data\_file\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00071}00071\ \ \ \ \ print(f\textcolor{stringliteral}{"{}Directorio\ de\ resultados:\ \{results\_dir\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00073}00073\ \ \ \ \ num\_bodies\ =\ \mbox{\hyperlink{namespacecreate__gif_aeba8abf87bb18fc3649cc69ddc504189}{get\_num\_bodies\_from\_header}}(data\_file)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ num\_bodies\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}\ \textcolor{keywordflow}{or}\ num\_bodies\ <=\ 0:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}No\ se\ pudo\ determinar\ un\ número\ válido\ de\ cuerpos\ desde\ '\{data\_file\}'."{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00078}00078\ \ \ \ \ print(f\textcolor{stringliteral}{"{}Creando\ GIF\ animado:\ Archivo\ '\{data\_file\}',\ Cuerpos\ detectados\ N=\{num\_bodies\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00079}00079\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00080}00080\ \ \ \ \ \textcolor{comment}{\#\ Cargar\ datos}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00081}00081\ \ \ \ \ data\ =\ np.loadtxt(data\_file,\ comments=\textcolor{stringliteral}{'\#'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00082}00082\ \ \ \ \ time\ =\ data[:,\ 0]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00083}00083\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00084}00084\ \ \ \ \ \textcolor{comment}{\#\ Detectar\ dimensionalidad}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00085}00085\ \ \ \ \ z\_column\_indices\ =\ [3\ +\ i\ *\ 3\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_bodies)]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00086}00086\ \ \ \ \ z\_data\ =\ data[:,\ z\_column\_indices]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00087}00087\ \ \ \ \ z\_range\ =\ np.ptp(z\_data)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00088}00088\ \ \ \ \ is\_3d\ =\ z\_range\ >\ Z\_THRESHOLD}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00090}00090\ \ \ \ \ print(f\textcolor{stringliteral}{"{}Rango\ de\ Z\ detectado:\ \{z\_range:.4g\}.\ El\ movimiento\ es\ \{'3D'\ if\ is\_3d\ else\ '2D'\}."{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00091}00091\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ Configurar\ la\ figura}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{if}\ is\_3d:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ fig\ =\ plt.figure(figsize=(10,\ 8))}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ ax\ =\ fig.add\_subplot(111,\ projection=\textcolor{stringliteral}{'3d'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ ax.set\_zlabel(\textcolor{stringliteral}{"{}Z"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ fig,\ ax\ =\ plt.subplots(figsize=(10,\ 8))}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00099}00099\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00100}00100\ \ \ \ \ ax.set\_xlabel(\textcolor{stringliteral}{"{}X"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00101}00101\ \ \ \ \ ax.set\_ylabel(\textcolor{stringliteral}{"{}Y"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00102}00102\ \ \ \ \ ax.set\_title(f\textcolor{stringliteral}{'Simulación\ Gravitacional\ Animada\ (N=\{num\_bodies\}\ Cuerpos)'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00103}00103\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00104}00104\ \ \ \ \ \textcolor{comment}{\#\ Configurar\ colores}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00105}00105\ \ \ \ \ colors\ =\ plt.cm.tab10(np.linspace(0,\ 1,\ num\_bodies))}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00106}00106\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00107}00107\ \ \ \ \ \textcolor{comment}{\#\ Configurar\ límites\ de\ los\ ejes}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00108}00108\ \ \ \ \ x\_indices\ =\ [1\ +\ i\ *\ 3\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_bodies)]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00109}00109\ \ \ \ \ y\_indices\ =\ [2\ +\ i\ *\ 3\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_bodies)]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00110}00110\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00111}00111\ \ \ \ \ all\_x\ =\ data[:,\ x\_indices].flatten()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00112}00112\ \ \ \ \ all\_y\ =\ data[:,\ y\_indices].flatten()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00113}00113\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00114}00114\ \ \ \ \ x\_margin\ =\ (np.max(all\_x)\ -\/\ np.min(all\_x))\ *\ 0.1}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00115}00115\ \ \ \ \ y\_margin\ =\ (np.max(all\_y)\ -\/\ np.min(all\_y))\ *\ 0.1}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00117}00117\ \ \ \ \ ax.set\_xlim(np.min(all\_x)\ -\/\ x\_margin,\ np.max(all\_x)\ +\ x\_margin)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00118}00118\ \ \ \ \ ax.set\_ylim(np.min(all\_y)\ -\/\ y\_margin,\ np.max(all\_y)\ +\ y\_margin)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00119}00119\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{if}\ is\_3d:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ all\_z\ =\ data[:,\ z\_column\_indices].flatten()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ z\_margin\ =\ (np.max(all\_z)\ -\/\ np.min(all\_z))\ *\ 0.1}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ ax.set\_zlim(np.min(all\_z)\ -\/\ z\_margin,\ np.max(all\_z)\ +\ z\_margin)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00124}00124\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#\ Inicializar\ líneas\ y\ puntos\ para\ cada\ cuerpo}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00126}00126\ \ \ \ \ lines\ =\ []}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00127}00127\ \ \ \ \ points\ =\ []}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00128}00128\ \ \ \ \ trails\ =\ []}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00129}00129\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_bodies):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ is\_3d:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ line,\ =\ ax.plot([],\ [],\ [],\ color=colors[i],\ alpha=0.3,\ linewidth=1)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ point,\ =\ ax.plot([],\ [],\ [],\ \textcolor{stringliteral}{'o'},\ color=colors[i],\ markersize=8,\ label=f\textcolor{stringliteral}{'Cuerpo\ \{i+1\}'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ line,\ =\ ax.plot([],\ [],\ color=colors[i],\ alpha=0.3,\ linewidth=1)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ point,\ =\ ax.plot([],\ [],\ \textcolor{stringliteral}{'o'},\ color=colors[i],\ markersize=8,\ label=f\textcolor{stringliteral}{'Cuerpo\ \{i+1\}'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ lines.append(line)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ points.append(point)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ trails.append([])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00141}00141\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00142}00142\ \ \ \ \ ax.legend()}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00143}00143\ \ \ \ \ ax.grid(\textcolor{keyword}{True},\ alpha=0.3)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00144}00144\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00145}00145\ \ \ \ \ \textcolor{comment}{\#\ Texto\ para\ mostrar\ tiempo}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{if}\ is\_3d:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Para\ 3D,\ usar\ text2D\ o\ coordenadas\ 3D\ específicas}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ time\_text\ =\ fig.text(0.02,\ 0.98,\ \textcolor{stringliteral}{''},\ fontsize=12,}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ verticalalignment=\textcolor{stringliteral}{'top'},\ bbox=dict(boxstyle=\textcolor{stringliteral}{'round'},\ facecolor=\textcolor{stringliteral}{'wheat'},\ alpha=0.5))}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Para\ 2D\ funciona\ normalmente}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ time\_text\ =\ ax.text(0.02,\ 0.98,\ \textcolor{stringliteral}{''},\ transform=ax.transAxes,\ fontsize=12,}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ verticalalignment=\textcolor{stringliteral}{'top'},\ bbox=dict(boxstyle=\textcolor{stringliteral}{'round'},\ facecolor=\textcolor{stringliteral}{'wheat'},\ alpha=0.5))}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00154}00154\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00155}00155\ \ \ \ \ \textcolor{keyword}{def\ }animate(frame):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}Función\ de\ animación\ para\ cada\ frame."{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ trail\_length\ =\ min(50,\ frame\ +\ 1)\ \ \textcolor{comment}{\#\ Mostrar\ hasta\ 50\ puntos\ de\ historia}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ start\_idx\ =\ max(0,\ frame\ -\/\ trail\_length\ +\ 1)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_bodies):}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ x\_idx\ =\ 1\ +\ i\ *\ 3}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ y\_idx\ =\ 2\ +\ i\ *\ 3}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ is\_3d:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_idx\ =\ 3\ +\ i\ *\ 3}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Actualizar\ trayectoria}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines[i].set\_data(data[start\_idx:frame+1,\ x\_idx],\ data[start\_idx:frame+1,\ y\_idx])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines[i].set\_3d\_properties(data[start\_idx:frame+1,\ z\_idx])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Actualizar\ posición\ actual}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points[i].set\_data([data[frame,\ x\_idx]],\ [data[frame,\ y\_idx]])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points[i].set\_3d\_properties([data[frame,\ z\_idx]])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Actualizar\ trayectoria}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lines[i].set\_data(data[start\_idx:frame+1,\ x\_idx],\ data[start\_idx:frame+1,\ y\_idx])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Actualizar\ posición\ actual}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points[i].set\_data([data[frame,\ x\_idx]],\ [data[frame,\ y\_idx]])}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Actualizar\ texto\ de\ tiempo}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ time\_text.set\_text(f\textcolor{stringliteral}{'Tiempo:\ \{time[frame]:.2f\}'})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lines\ +\ points\ +\ [time\_text]}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00182}00182\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00183}00183\ \ \ \ \ \textcolor{comment}{\#\ Crear\ animación}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00184}00184\ \ \ \ \ print(\textcolor{stringliteral}{"{}Generando\ animación...\ Esto\ puede\ tomar\ unos\ momentos."{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00185}00185\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00186}00186\ \ \ \ \ \textcolor{comment}{\#\ Reducir\ el\ número\ de\ frames\ para\ hacer\ el\ GIF\ más\ manejable}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00187}00187\ \ \ \ \ step\ =\ max(1,\ len(time)\ //\ 200)\ \ \textcolor{comment}{\#\ Máximo\ 200\ frames}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00188}00188\ \ \ \ \ frames\ =\ range(0,\ len(time),\ step)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00189}00189\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00190}00190\ \ \ \ \ anim\ =\ animation.FuncAnimation(fig,\ animate,\ frames=frames,\ interval=50,\ blit=\textcolor{keyword}{False},\ repeat=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00191}00191\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00192}00192\ \ \ \ \ \textcolor{comment}{\#\ Guardar\ como\ GIF}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00193}00193\ \ \ \ \ output\_path\ =\ os.path.join(results\_dir,\ f\textcolor{stringliteral}{"{}simulacion\_animada\_\{'3D'\ if\ is\_3d\ else\ '2D'\}\_\{num\_bodies\}\_cuerpos.gif"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00194}00194\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00195}00195\ \ \ \ \ print(f\textcolor{stringliteral}{"{}Guardando\ GIF:\ \{output\_path\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00196}00196\ \ \ \ \ print(\textcolor{stringliteral}{"{}Esto\ puede\ tomar\ varios\ minutos\ dependiendo\ de\ la\ duración\ de\ la\ simulación..."{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00197}00197\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00198}00198\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ anim.save(output\_path,\ writer=\textcolor{stringliteral}{'pillow'},\ fps=20,\ dpi=80)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}✅\ GIF\ creado\ exitosamente:\ \{output\_path\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mostrar\ información\ del\ archivo}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ file\_size\ =\ os.path.getsize(output\_path)\ /\ (1024\ *\ 1024)\ \ \textcolor{comment}{\#\ MB}}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}📊\ Tamaño\ del\ archivo:\ \{file\_size:.1f\}\ MB"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}🎬\ Frames:\ \{len(frames)\},\ Duración\ estimada:\ \{len(frames)/20:.1f\}\ segundos"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{except}\ Exception\ \textcolor{keyword}{as}\ e:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}❌\ Error\ al\ crear\ el\ GIF:\ \{e\}"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Asegúrate\ de\ tener\ instalado\ Pillow:\ pip\ install\ Pillow"{}})}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00210}00210\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00211}00211\ \ \ \ \ plt.close(fig)}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00213}00213\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{create__gif_8py_source_l00214}00214\ \ \ \ \ \mbox{\hyperlink{namespacecreate__gif_a6c5eef8be012bed772e43c1c71c147e4}{create\_animated\_gif}}()}
+
+\end{DoxyCode}

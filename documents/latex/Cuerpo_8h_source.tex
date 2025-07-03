@@ -1,0 +1,54 @@
+\doxysection{Cuerpo.\+h}
+\hypertarget{Cuerpo_8h_source}{}\label{Cuerpo_8h_source}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/include/Cuerpo.h@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/include/Cuerpo.h}}
+\mbox{\hyperlink{Cuerpo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ CUERPO\_H}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ CUERPO\_H}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector3D_8h}{vector3D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilidades_8h}{utilidades.h}}"{}}\ \textcolor{comment}{//\ Para\ G}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00024}\mbox{\hyperlink{classCuerpo}{00024}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCuerpo}{Cuerpo}}\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00025}00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00026}\mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{00026}}\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}};\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00027}\mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{00027}}\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}};\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00028}\mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{00028}}\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}};\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00029}\mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{00029}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00030}\mbox{\hyperlink{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39}{00030}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39}{R}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00036}\mbox{\hyperlink{classCuerpo_a1581568554f78133611a3532538e5071}{00036}}\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a1581568554f78133611a3532538e5071}{Cuerpo}}()\ \{\};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a2d4de38096e01a5fe440357deff94abf}{Inicie}}(\textcolor{keywordtype}{double}\ x0,\ \textcolor{keywordtype}{double}\ y0,\ \textcolor{keywordtype}{double}\ z0,}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Vx0,\ \textcolor{keywordtype}{double}\ Vy0,\ \textcolor{keywordtype}{double}\ Vz0,}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m0,\ \textcolor{keywordtype}{double}\ R0);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a3d1af9f3f69170486f2ab9d458108157}{BorreFuerza}}();}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_ae9fe02cf201173b128e1896057771fda}{AdicioneFuerzaGravitacional}}(\mbox{\hyperlink{classCuerpo}{Cuerpo}}\ \&otroCuerpo);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a46637bc14bef9506edad8ec95430e3a4}{Muevase\_r}}(\textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00080}00080\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c}{Muevase\_V}}(\textcolor{keywordtype}{double}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvector3D}{vector3D}}\ \&F\_siguiente);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ ===\ Métodos\ de\ acceso\ (getters)\ ===}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00092}00092\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00097}\mbox{\hyperlink{classCuerpo_ad61b2b203578bbdfe07d78c76c186ca9}{00097}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_ad61b2b203578bbdfe07d78c76c186ca9}{Getx}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}.\mbox{\hyperlink{classvector3D_a4e2256f1c15fb35195442756cefec430}{x}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00098}00098\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00103}\mbox{\hyperlink{classCuerpo_a23f52e3212429c9c3ad28b6452452f35}{00103}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_a23f52e3212429c9c3ad28b6452452f35}{Gety}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}.\mbox{\hyperlink{classvector3D_aabdafd086384e1c592e345862dba13bc}{y}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00104}00104\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00109}\mbox{\hyperlink{classCuerpo_a19a9f54a8cc23516f54bcd5d6cdad0d9}{00109}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_a19a9f54a8cc23516f54bcd5d6cdad0d9}{Getz}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}.\mbox{\hyperlink{classvector3D_a6e6119a76b6ea08daefaf25d39c719e9}{z}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00115}\mbox{\hyperlink{classCuerpo_a085e8c050b1765a52a1dd63600cc89db}{00115}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_a085e8c050b1765a52a1dd63600cc89db}{GetVx}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}.\mbox{\hyperlink{classvector3D_a4e2256f1c15fb35195442756cefec430}{x}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00121}\mbox{\hyperlink{classCuerpo_aa476fc848b88bd50a7c3ff9727b9033f}{00121}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_aa476fc848b88bd50a7c3ff9727b9033f}{GetVy}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}.\mbox{\hyperlink{classvector3D_aabdafd086384e1c592e345862dba13bc}{y}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00122}00122\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00127}\mbox{\hyperlink{classCuerpo_abc0979b3e372425223a27b90445206af}{00127}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_abc0979b3e372425223a27b90445206af}{GetVz}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}.\mbox{\hyperlink{classvector3D_a6e6119a76b6ea08daefaf25d39c719e9}{z}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00128}00128\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00134}\mbox{\hyperlink{classCuerpo_a93018a2ae46e704f51e7259f38ce612b}{00134}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_a93018a2ae46e704f51e7259f38ce612b}{GetVnorm}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}.\mbox{\hyperlink{classvector3D_a2f551a0df7881e5f06ffdb94dec466d2}{norm}}();\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00140}\mbox{\hyperlink{classCuerpo_a616069a0a093e6aef213618a69c32d6c}{00140}}\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classCuerpo_a616069a0a093e6aef213618a69c32d6c}{Getm}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}};\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00141}00141\ \};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8h_source_l00143}00143\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CUERPO\_H}}
+
+\end{DoxyCode}

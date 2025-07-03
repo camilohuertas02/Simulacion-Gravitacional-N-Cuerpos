@@ -1,0 +1,373 @@
+\doxysection{Testing Namespace Reference}
+\hypertarget{namespaceTesting}{}\label{namespaceTesting}\index{Testing@{Testing}}
+
+
+Espacio de nombres para funciones de testing y validación.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTesting_1_1DatosCuerpo}{Datos\+Cuerpo}}
+\begin{DoxyCompactList}\small\item\em Estructura para almacenar datos físicos de un cuerpo celeste. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}}
+\begin{DoxyCompactList}\small\item\em Estructura para configuración completa de un sistema de prueba. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} $>$ \mbox{\hyperlink{namespaceTesting_af8cba327b931474a7bb1b1c0ff5e0dc1}{obtener\+Sistemas\+Predefinidos}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene sistemas predefinidos como plantillas para el programa principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a5579a91cd3913733ea45f8533dfb218d}{generar\+Archivo\+Entrada}} (const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&sistema)
+\begin{DoxyCompactList}\small\item\em Genera archivo de entrada para el programa principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ae5580bcb995f4636febb18a0f2421b54}{ejecutar\+Simulacion\+Con\+Sistema}} (const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&sistema)
+\begin{DoxyCompactList}\small\item\em Ejecuta simulación con el programa principal usando sistema predefinido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a006d04ac6ba48f82f8d91e1831238b29}{mostrar\+Sistemas\+Predefinidos}} ()
+\begin{DoxyCompactList}\small\item\em Muestra menú de sistemas predefinidos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a705b3b00ac4bbc83bf51a6340b10979f}{mostrar\+Menu\+Testing}} ()
+\begin{DoxyCompactList}\small\item\em Menú principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ac37b13f203def54a49a9afd91039e348}{ejecutar\+Modo\+Testing}} ()
+\begin{DoxyCompactList}\small\item\em Función principal del modo testing que maneja el bucle de menú \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aeb820c19468fe2ccc62a3d0b7abf211e}{verificar\+Formato\+Archivo}} ()
+\begin{DoxyCompactList}\small\item\em Analiza y valida estructura del archivo de datos de simulación. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceTesting_a32a38ed9f0f62f62d783c5f5a724e6bd}{ejecutar\+Comando}} (const std\+::string \&comando)
+\begin{DoxyCompactList}\small\item\em Ejecuta un comando del sistema y reporta el resultado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0}{probar\+Python}} ()
+\begin{DoxyCompactList}\small\item\em Prueba Python/matplotlib con scripts existentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099}{probar\+Octave}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la generación de gráficas estáticas con Octave/\+MATLAB. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a9d64c7d5dcd359640782816bc14185db}{probar\+Gnuplot}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la generación de gráficas estáticas con Gnuplot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aed2161604c65f7c66691328eed8bb98e}{probar\+Todas\+Las\+Herramientas}} ()
+\begin{DoxyCompactList}\small\item\em Prueba todas las herramientas con scripts existentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_ac7a11550dca1a637411b8cf518657230}{probar\+GIFPython}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la creación de GIF animado usando Python/matplotlib. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a7a3d376bf59511f4d9bd3537935a0e79}{probar\+GIFGnuplot}} ()
+\begin{DoxyCompactList}\small\item\em Prueba la creación de GIF animado usando Gnuplot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_a42a7ebe3a4bb3dc1252924ebd5e53385}{ver\+Archivos\+Resultados}} ()
+\begin{DoxyCompactList}\small\item\em Ver archivos de resultados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceTesting_aa0be7313180c17e921d790efa293a185}{probar\+Todas\+Las\+Herramientas\+Con\+GIF}} ()
+\begin{DoxyCompactList}\small\item\em Prueba todas las herramientas incluyendo creación de GIFs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Espacio de nombres para funciones de testing y validación. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceTesting_a32a38ed9f0f62f62d783c5f5a724e6bd}\label{namespaceTesting_a32a38ed9f0f62f62d783c5f5a724e6bd} 
+\index{Testing@{Testing}!ejecutarComando@{ejecutarComando}}
+\index{ejecutarComando@{ejecutarComando}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{ejecutarComando()}{ejecutarComando()}}
+{\footnotesize\ttfamily int Testing\+::ejecutar\+Comando (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{comando }\end{DoxyParamCaption})}
+
+
+
+Ejecuta un comando del sistema y reporta el resultado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comando} & Comando a ejecutar en el shell del sistema \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Código de retorno del comando (0 = éxito, ≠0 = error)
+\end{DoxyReturn}
+Usa system() para ejecutar el comando y proporciona feedback visual 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00383}{383}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_ac37b13f203def54a49a9afd91039e348}\label{namespaceTesting_ac37b13f203def54a49a9afd91039e348} 
+\index{Testing@{Testing}!ejecutarModoTesting@{ejecutarModoTesting}}
+\index{ejecutarModoTesting@{ejecutarModoTesting}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{ejecutarModoTesting()}{ejecutarModoTesting()}}
+{\footnotesize\ttfamily void Testing\+::ejecutar\+Modo\+Testing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función principal del modo testing que maneja el bucle de menú 
+
+Controla la interfaz de usuario, manejo de opciones y flujo del programa 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00237}{237}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_ae5580bcb995f4636febb18a0f2421b54}\label{namespaceTesting_ae5580bcb995f4636febb18a0f2421b54} 
+\index{Testing@{Testing}!ejecutarSimulacionConSistema@{ejecutarSimulacionConSistema}}
+\index{ejecutarSimulacionConSistema@{ejecutarSimulacionConSistema}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{ejecutarSimulacionConSistema()}{ejecutarSimulacionConSistema()}}
+{\footnotesize\ttfamily void Testing\+::ejecutar\+Simulacion\+Con\+Sistema (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&}]{sistema }\end{DoxyParamCaption})}
+
+
+
+Ejecuta simulación con el programa principal usando sistema predefinido. 
+
+Ejecuta simulación completa usando el programa principal compilado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & Sistema predefinido cuyos datos se usarán para la simulación\\
+\hline
+\end{DoxyParams}
+Genera archivo de entrada temporal, compila código fuente y ejecuta simulación redirigiendo entrada desde archivo temporal
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & Sistema predefinido a simular\\
+\hline
+\end{DoxyParams}
+Genera archivo de entrada, compila y ejecuta programa principal \begin{DoxyPrecond}{Precondition}
+Código fuente debe estar en directorio ../src/ 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Genera archivos de datos en ../results/ 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a5579a91cd3913733ea45f8533dfb218d}\label{namespaceTesting_a5579a91cd3913733ea45f8533dfb218d} 
+\index{Testing@{Testing}!generarArchivoEntrada@{generarArchivoEntrada}}
+\index{generarArchivoEntrada@{generarArchivoEntrada}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{generarArchivoEntrada()}{generarArchivoEntrada()}}
+{\footnotesize\ttfamily void Testing\+::generar\+Archivo\+Entrada (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} \&}]{sistema }\end{DoxyParamCaption})}
+
+
+
+Genera archivo de entrada para el programa principal. 
+
+Genera archivo de entrada temporal para el programa principal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & Configuración del sistema a escribir en el archivo\\
+\hline
+\end{DoxyParams}
+Genera input\+\_\+temp.\+txt con formato\+: N, masas, radios, posiciones, velocidades, dt, t\+\_\+max, opción de graficación
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & Sistema predefinido cuyos datos se escribirán al archivo\\
+\hline
+\end{DoxyParams}
+Crea input\+\_\+temp.\+txt con formato compatible con \doxylink{main_8cpp}{main.\+cpp} 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a705b3b00ac4bbc83bf51a6340b10979f}\label{namespaceTesting_a705b3b00ac4bbc83bf51a6340b10979f} 
+\index{Testing@{Testing}!mostrarMenuTesting@{mostrarMenuTesting}}
+\index{mostrarMenuTesting@{mostrarMenuTesting}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{mostrarMenuTesting()}{mostrarMenuTesting()}}
+{\footnotesize\ttfamily void Testing\+::mostrar\+Menu\+Testing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Menú principal. 
+
+Muestra el menú principal de testing con todas las opciones disponibles.
+
+Presenta un menú organizado en secciones\+: simulación, herramientas estáticas, animaciones GIF y utilidades 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00214}{214}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a006d04ac6ba48f82f8d91e1831238b29}\label{namespaceTesting_a006d04ac6ba48f82f8d91e1831238b29} 
+\index{Testing@{Testing}!mostrarSistemasPredefinidos@{mostrarSistemasPredefinidos}}
+\index{mostrarSistemasPredefinidos@{mostrarSistemasPredefinidos}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{mostrarSistemasPredefinidos()}{mostrarSistemasPredefinidos()}}
+{\footnotesize\ttfamily void Testing\+::mostrar\+Sistemas\+Predefinidos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Muestra menú de sistemas predefinidos. 
+
+Presenta menú de sistemas predefinidos y permite selección interactiva.
+
+Presenta lista interactiva de sistemas disponibles, permite selección y ejecuta simulación completa del sistema elegido
+
+Muestra lista numerada de sistemas y ejecuta simulación del seleccionado 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_af8cba327b931474a7bb1b1c0ff5e0dc1}\label{namespaceTesting_af8cba327b931474a7bb1b1c0ff5e0dc1} 
+\index{Testing@{Testing}!obtenerSistemasPredefinidos@{obtenerSistemasPredefinidos}}
+\index{obtenerSistemasPredefinidos@{obtenerSistemasPredefinidos}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{obtenerSistemasPredefinidos()}{obtenerSistemasPredefinidos()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structTesting_1_1SistemaPrueba}{Sistema\+Prueba}} $>$ Testing\+::obtener\+Sistemas\+Predefinidos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene sistemas predefinidos como plantillas para el programa principal. 
+
+Obtiene la lista de sistemas predefinidos disponibles para testing.
+
+\begin{DoxyReturn}{Returns}
+Vector con configuraciones de sistemas orbitales conocidos
+\end{DoxyReturn}
+Incluye órbita circular, sistema Tierra-\/\+Luna, problema de 3 cuerpos, etc.
+
+\begin{DoxyReturn}{Returns}
+Vector con configuraciones completas de sistemas conocidos
+\end{DoxyReturn}
+Incluye sistemas como órbita circular, problema de 3 cuerpos, etc. 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a7a3d376bf59511f4d9bd3537935a0e79}\label{namespaceTesting_a7a3d376bf59511f4d9bd3537935a0e79} 
+\index{Testing@{Testing}!probarGIFGnuplot@{probarGIFGnuplot}}
+\index{probarGIFGnuplot@{probarGIFGnuplot}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarGIFGnuplot()}{probarGIFGnuplot()}}
+{\footnotesize\ttfamily void Testing\+::probar\+GIFGnuplot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba la creación de GIF animado usando Gnuplot. 
+
+Verifica instalación de Gnuplot, luego crea animación GIF \begin{DoxyPrecond}{Precondition}
+Debe existir el archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Genera archivo GIF en directorio results/ 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00521}{521}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_ac7a11550dca1a637411b8cf518657230}\label{namespaceTesting_ac7a11550dca1a637411b8cf518657230} 
+\index{Testing@{Testing}!probarGIFPython@{probarGIFPython}}
+\index{probarGIFPython@{probarGIFPython}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarGIFPython()}{probarGIFPython()}}
+{\footnotesize\ttfamily void Testing\+::probar\+GIFPython (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba la creación de GIF animado usando Python/matplotlib. 
+
+Verifica dependencias (matplotlib, PIL), luego crea animación GIF \begin{DoxyPrecond}{Precondition}
+Debe existir el archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Genera archivo GIF en directorio results/ 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00495}{495}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a9d64c7d5dcd359640782816bc14185db}\label{namespaceTesting_a9d64c7d5dcd359640782816bc14185db} 
+\index{Testing@{Testing}!probarGnuplot@{probarGnuplot}}
+\index{probarGnuplot@{probarGnuplot}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarGnuplot()}{probarGnuplot()}}
+{\footnotesize\ttfamily void Testing\+::probar\+Gnuplot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba la generación de gráficas estáticas con Gnuplot. 
+
+Verifica instalación de Gnuplot, luego ejecuta script de graficación \begin{DoxyPrecond}{Precondition}
+Debe existir el archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00458}{458}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099}\label{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099} 
+\index{Testing@{Testing}!probarOctave@{probarOctave}}
+\index{probarOctave@{probarOctave}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarOctave()}{probarOctave()}}
+{\footnotesize\ttfamily void Testing\+::probar\+Octave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba la generación de gráficas estáticas con Octave/\+MATLAB. 
+
+Verifica instalación de Octave, luego ejecuta script de graficación \begin{DoxyPrecond}{Precondition}
+Debe existir el archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00431}{431}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0}\label{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0} 
+\index{Testing@{Testing}!probarPython@{probarPython}}
+\index{probarPython@{probarPython}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarPython()}{probarPython()}}
+{\footnotesize\ttfamily void Testing\+::probar\+Python (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba Python/matplotlib con scripts existentes. 
+
+Prueba la generación de gráficas estáticas con Python/matplotlib.
+
+Verifica instalación de Python3 y matplotlib, luego ejecuta script de graficación \begin{DoxyPrecond}{Precondition}
+Debe existir el archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00397}{397}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_aed2161604c65f7c66691328eed8bb98e}\label{namespaceTesting_aed2161604c65f7c66691328eed8bb98e} 
+\index{Testing@{Testing}!probarTodasLasHerramientas@{probarTodasLasHerramientas}}
+\index{probarTodasLasHerramientas@{probarTodasLasHerramientas}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarTodasLasHerramientas()}{probarTodasLasHerramientas()}}
+{\footnotesize\ttfamily void Testing\+::probar\+Todas\+Las\+Herramientas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba todas las herramientas con scripts existentes. 
+
+Prueba todas las herramientas de graficación estática secuencialmente.
+
+Ejecuta \doxylink{namespaceTesting_a4931476c1f795e1ab9feb6287fba12b0}{probar\+Python()}, \doxylink{namespaceTesting_aa0862bed7ca14277a313bc8d06f75099}{probar\+Octave()} y \doxylink{namespaceTesting_a9d64c7d5dcd359640782816bc14185db}{probar\+Gnuplot()} en orden 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00488}{488}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_aa0be7313180c17e921d790efa293a185}\label{namespaceTesting_aa0be7313180c17e921d790efa293a185} 
+\index{Testing@{Testing}!probarTodasLasHerramientasConGIF@{probarTodasLasHerramientasConGIF}}
+\index{probarTodasLasHerramientasConGIF@{probarTodasLasHerramientasConGIF}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{probarTodasLasHerramientasConGIF()}{probarTodasLasHerramientasConGIF()}}
+{\footnotesize\ttfamily void Testing\+::probar\+Todas\+Las\+Herramientas\+Con\+GIF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prueba todas las herramientas incluyendo creación de GIFs. 
+
+Prueba todas las herramientas incluyendo gráficas estáticas y GIFs animados.
+
+Ejecuta secuencialmente todas las herramientas de graficación disponibles 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00557}{557}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_a42a7ebe3a4bb3dc1252924ebd5e53385}\label{namespaceTesting_a42a7ebe3a4bb3dc1252924ebd5e53385} 
+\index{Testing@{Testing}!verArchivosResultados@{verArchivosResultados}}
+\index{verArchivosResultados@{verArchivosResultados}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{verArchivosResultados()}{verArchivosResultados()}}
+{\footnotesize\ttfamily void Testing\+::ver\+Archivos\+Resultados (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ver archivos de resultados. 
+
+Lista y muestra información de todos los archivos en directorio results/.
+
+Usa comando ls para mostrar archivos generados por simulaciones y scripts 
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00549}{549}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+
+\Hypertarget{namespaceTesting_aeb820c19468fe2ccc62a3d0b7abf211e}\label{namespaceTesting_aeb820c19468fe2ccc62a3d0b7abf211e} 
+\index{Testing@{Testing}!verificarFormatoArchivo@{verificarFormatoArchivo}}
+\index{verificarFormatoArchivo@{verificarFormatoArchivo}!Testing@{Testing}}
+\doxysubsubsection{\texorpdfstring{verificarFormatoArchivo()}{verificarFormatoArchivo()}}
+{\footnotesize\ttfamily void Testing\+::verificar\+Formato\+Archivo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Analiza y valida estructura del archivo de datos de simulación. 
+
+Verifica estructura y formato del archivo de datos generado.
+
+Lee cabecera para determinar número de cuerpos, verifica formato de columnas y muestra estadísticas básicas de los datos
+
+Analiza cabecera, número de columnas y consistencia de datos \begin{DoxyPrecond}{Precondition}
+Debe existir archivo ../results/sim\+\_\+data.dat 
+\end{DoxyPrecond}
+
+
+Definition at line \mbox{\hyperlink{testing_8cpp_source_l00350}{350}} of file \mbox{\hyperlink{testing_8cpp_source}{testing.\+cpp}}.
+

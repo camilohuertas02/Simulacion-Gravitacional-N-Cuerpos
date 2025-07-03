@@ -1,0 +1,56 @@
+\doxysection{Cuerpo.\+cpp}
+\hypertarget{Cuerpo_8cpp_source}{}\label{Cuerpo_8cpp_source}\index{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/src/Cuerpo.cpp@{/home/isabel/Simulacion-\/Gravitacional-\/N-\/Cuerpos/src/Cuerpo.cpp}}
+\mbox{\hyperlink{Cuerpo_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Cuerpo_8h}{Cuerpo.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector3D_8h}{vector3D.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utilidades_8h}{utilidades.h}}"{}}\ \textcolor{comment}{//\ Para\ G}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <cmath>}\ \ \ \ \ \ \ \textcolor{comment}{//\ Para\ std::pow\ y\ std::sqrt\ (aunque\ vector3D::norm\ ya\ usa\ sqrt)}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00006}\mbox{\hyperlink{classCuerpo_a2d4de38096e01a5fe440357deff94abf}{00006}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a2d4de38096e01a5fe440357deff94abf}{Cuerpo::Inicie}}(\textcolor{keywordtype}{double}\ x0,\ \textcolor{keywordtype}{double}\ y0,\ \textcolor{keywordtype}{double}\ z0,}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Vx0,\ \textcolor{keywordtype}{double}\ Vy0,\ \textcolor{keywordtype}{double}\ Vz0,}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m0,\ \textcolor{keywordtype}{double}\ R0)\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}.\mbox{\hyperlink{classvector3D_a3760c1cc48a676bcdb470016cfa61034}{load}}(x0,\ y0,\ z0);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}.\mbox{\hyperlink{classvector3D_a3760c1cc48a676bcdb470016cfa61034}{load}}(Vx0,\ Vy0,\ Vz0);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}\ =\ m0;}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{classCuerpo_adb6f8df365c3d2a991e2d1872e0ace39}{R}}\ =\ R0;}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}.\mbox{\hyperlink{classvector3D_a3760c1cc48a676bcdb470016cfa61034}{load}}(0,\ 0,\ 0);\ \textcolor{comment}{//\ Fuerza\ inicial\ es\ cero}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00016}\mbox{\hyperlink{classCuerpo_a3d1af9f3f69170486f2ab9d458108157}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a3d1af9f3f69170486f2ab9d458108157}{Cuerpo::BorreFuerza}}()\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}.\mbox{\hyperlink{classvector3D_a3760c1cc48a676bcdb470016cfa61034}{load}}(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00020}\mbox{\hyperlink{classCuerpo_ae9fe02cf201173b128e1896057771fda}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_ae9fe02cf201173b128e1896057771fda}{Cuerpo::AdicioneFuerzaGravitacional}}(\mbox{\hyperlink{classCuerpo}{Cuerpo}}\ \&otroCuerpo)\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ dr\ =\ otroCuerpo.\mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}\ -\/\ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}};\ \textcolor{comment}{//\ Vector\ de\ r\ a\ otroCuerpo.r}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{double}\ distancia\_cubed\ =\ std::pow(dr.\mbox{\hyperlink{classvector3D_a2f551a0df7881e5f06ffdb94dec466d2}{norm}}(),\ 3);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Evitar\ división\ por\ cero\ si\ los\ cuerpos\ están\ en\ la\ misma\ posición\ (aunque\ verificarDatos\ debería\ prevenir\ esto)}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (distancia\_cubed\ <\ 1e-\/12)\ \{\ \textcolor{comment}{//\ Un\ umbral\ pequeño\ para\ evitar\ problemas\ numéricos}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ Fuerza\ F\ =\ G\ *\ m1\ *\ m2\ *\ (r2\ -\/\ r1)\ /\ |r2\ -\/\ r1|\string^3}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ F\_grav\ =\ dr\ *\ (\mbox{\hyperlink{utilidades_8h_ab97e4616d23ed4c2961295010c1afc3c}{G}}\ *\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}\ *\ otroCuerpo.\mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}\ /\ distancia\_cubed);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}\ +=\ F\_grav;}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00034}00034\ \textcolor{comment}{//\ Actualiza\ la\ posición:\ r(t+dt)\ =\ r(t)\ +\ V(t)*dt\ +\ (F(t)/(2*m))*dt*dt}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00035}\mbox{\hyperlink{classCuerpo_a46637bc14bef9506edad8ec95430e3a4}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a46637bc14bef9506edad8ec95430e3a4}{Cuerpo::Muevase\_r}}(\textcolor{keywordtype}{double}\ dt)\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}\ ==\ 0)\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ No\ mover\ cuerpos\ sin\ masa\ (o\ manejar\ error)}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ aceleracion\_actual\ =\ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}\ /\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a1f8c2d2efff695ac21f18f80291ad039}{r}}\ +=\ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}\ *\ dt\ +\ aceleracion\_actual\ *\ (0.5\ *\ dt\ *\ dt);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00041}00041\ \textcolor{comment}{//\ Actualiza\ la\ velocidad:\ V(t+dt)\ =\ V(t)\ +\ (F(t)\ +\ F(t+dt))/(2*m)*dt}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00042}\mbox{\hyperlink{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c}{00042}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCuerpo_a8e5164bc6b9ec07a374c90625712a48c}{Cuerpo::Muevase\_V}}(\textcolor{keywordtype}{double}\ dt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classvector3D}{vector3D}}\ \&F\_siguiente\_const)\ \{}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}}\ ==\ 0)\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ No\ mover\ cuerpos\ sin\ masa}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ F\_siguiente\ =\ F\_siguiente\_const;\ \textcolor{comment}{//\ Copia\ no\ constante\ para\ poder\ usar\ operadores\ no-\/const}}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ aceleracion\_actual\ =\ \mbox{\hyperlink{classCuerpo_a0fde833c000fddadc28908751643d971}{F}}\ /\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classvector3D}{vector3D}}\ aceleracion\_siguiente\ =\ F\_siguiente\ /\ \mbox{\hyperlink{classCuerpo_ab6d4073e0eb113b5ca7bf8fdf10d82d9}{m}};}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{classCuerpo_a7ce6a5d854353a08979c2484aeb87826}{V}}\ +=\ (aceleracion\_actual\ +\ aceleracion\_siguiente)\ *\ (0.5\ *\ dt);}
+\DoxyCodeLine{\Hypertarget{Cuerpo_8cpp_source_l00050}00050\ \}}
+
+\end{DoxyCode}

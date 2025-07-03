@@ -1,0 +1,383 @@
+\doxysection{vector3D Class Reference}
+\hypertarget{classvector3D}{}\label{classvector3D}\index{vector3D@{vector3D}}
+
+
+Clase para manipular vectores tridimensionales.  
+
+
+
+
+{\ttfamily \#include $<$vector3\+D.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classvector3D_a73976cfa2a87ad6fd518e8b023048fac}{vector3D}} ()
+\item 
+\mbox{\hyperlink{classvector3D_a66498ecd628ba75d41d765bf70635b3d}{vector3D}} (double x0, double y0, double z0)
+\item 
+void \mbox{\hyperlink{classvector3D_a3760c1cc48a676bcdb470016cfa61034}{load}} (double x0, double y0, double z0)
+\begin{DoxyCompactList}\small\item\em Inicializa el vector con componentes específicas. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvector3D_a4e2256f1c15fb35195442756cefec430}{x}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la componente X del vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvector3D_aabdafd086384e1c592e345862dba13bc}{y}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la componente Y del vector. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvector3D_a6e6119a76b6ea08daefaf25d39c719e9}{z}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la componente Z del vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvector3D_a41fa3443c6250cf23461c2b1cf4194d4}{show}} () const
+\begin{DoxyCompactList}\small\item\em Muestra el vector por consola. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classvector3D_aba35ef252b54c9c3748af3b7355b7615}{operator+}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga de suma. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvector3D_acf7d977a30c24406d5061d3cb0afee25}{operator+=}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2)
+\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classvector3D_aa909d84454d42f17b9ee581704b5bcba}{operator-\/}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2) const
+\begin{DoxyCompactList}\small\item\em Sobrecarga de resta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvector3D_a62674887cbdb695d2f059939cca13705}{operator-\/=}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2)
+\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classvector3D_a402bb0c16135aee9c83f0bc930ac1694}{operator\texorpdfstring{$\ast$}{*}}} (double a) const
+\begin{DoxyCompactList}\small\item\em Producto por escalar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvector3D_a4464283cc3ae245fcbea7eab4055cd5b}{operator\texorpdfstring{$\ast$}{*}=}} (double a)
+\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classvector3D_a8483a92f8db07c5d749ad36c6f56d704}{operator/}} (double a) const
+\begin{DoxyCompactList}\small\item\em División por escalar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classvector3D_a66024b83f6287a2c3e43780ee51b0230}{operator/=}} (double a)
+\item 
+double \mbox{\hyperlink{classvector3D_add40ac60a40a447db832fe0140b64654}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2) const
+\begin{DoxyCompactList}\small\item\em Producto punto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classvector3D}{vector3D}} \mbox{\hyperlink{classvector3D_a6f3b8585623c3340d7d87cc402719003}{operator\texorpdfstring{$^\wedge$}{\string^}}} (const \mbox{\hyperlink{classvector3D}{vector3D}} \&v2) const
+\begin{DoxyCompactList}\small\item\em Producto cruz. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvector3D_a1cf2ea62bec1af2d69bcdccf0cb88782}{norm2}} () const
+\begin{DoxyCompactList}\small\item\em Norma al cuadrado. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classvector3D_a2f551a0df7881e5f06ffdb94dec466d2}{norm}} () const
+\begin{DoxyCompactList}\small\item\em Norma (módulo) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classvector3D_afd10e08cfb82d7cb321cb6df3858310c}{X}}
+\item 
+double \mbox{\hyperlink{classvector3D_a83c4deee64b8ed413d00d137cec99b44}{Y}}
+\item 
+double \mbox{\hyperlink{classvector3D_a8495ec6cf13fe9fb189fb7f790417a5c}{Z}}
+\begin{DoxyCompactList}\small\item\em Componentes cartesianas del vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase para manipular vectores tridimensionales. 
+
+Proporciona operaciones básicas de álgebra vectorial necesarias para simulaciones físicas en 3D 
+
+Definition at line \mbox{\hyperlink{vector3D_8h_source_l00018}{18}} of file \mbox{\hyperlink{vector3D_8h_source}{vector3\+D.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classvector3D_a73976cfa2a87ad6fd518e8b023048fac}\label{classvector3D_a73976cfa2a87ad6fd518e8b023048fac} 
+\index{vector3D@{vector3D}!vector3D@{vector3D}}
+\index{vector3D@{vector3D}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{vector3D()}{vector3D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vector3\+D\+::vector3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a66498ecd628ba75d41d765bf70635b3d}\label{classvector3D_a66498ecd628ba75d41d765bf70635b3d} 
+\index{vector3D@{vector3D}!vector3D@{vector3D}}
+\index{vector3D@{vector3D}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{vector3D()}{vector3D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily vector3\+D\+::vector3D (\begin{DoxyParamCaption}\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{z0 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classvector3D_a3760c1cc48a676bcdb470016cfa61034}\label{classvector3D_a3760c1cc48a676bcdb470016cfa61034} 
+\index{vector3D@{vector3D}!load@{load}}
+\index{load@{load}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void vector3\+D\+::load (\begin{DoxyParamCaption}\item[{double}]{x0,  }\item[{double}]{y0,  }\item[{double}]{z0 }\end{DoxyParamCaption})}
+
+
+
+Inicializa el vector con componentes específicas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Componente X \\
+\hline
+{\em y0} & Componente Y ~\newline
+ \\
+\hline
+{\em z0} & Componente Z \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+El vector queda inicializado con (x0, y0, z0) 
+\end{DoxyPostcond}
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a2f551a0df7881e5f06ffdb94dec466d2}\label{classvector3D_a2f551a0df7881e5f06ffdb94dec466d2} 
+\index{vector3D@{vector3D}!norm@{norm}}
+\index{norm@{norm}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily double vector3\+D\+::norm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Norma (módulo) 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a1cf2ea62bec1af2d69bcdccf0cb88782}\label{classvector3D_a1cf2ea62bec1af2d69bcdccf0cb88782} 
+\index{vector3D@{vector3D}!norm2@{norm2}}
+\index{norm2@{norm2}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{norm2()}{norm2()}}
+{\footnotesize\ttfamily double vector3\+D\+::norm2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Norma al cuadrado. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_add40ac60a40a447db832fe0140b64654}\label{classvector3D_add40ac60a40a447db832fe0140b64654} 
+\index{vector3D@{vector3D}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double vector3\+D\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption}) const}
+
+
+
+Producto punto. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a402bb0c16135aee9c83f0bc930ac1694}\label{classvector3D_a402bb0c16135aee9c83f0bc930ac1694} 
+\index{vector3D@{vector3D}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} vector3\+D\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption}) const}
+
+
+
+Producto por escalar. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a4464283cc3ae245fcbea7eab4055cd5b}\label{classvector3D_a4464283cc3ae245fcbea7eab4055cd5b} 
+\index{vector3D@{vector3D}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily void vector3\+D\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_aba35ef252b54c9c3748af3b7355b7615}\label{classvector3D_aba35ef252b54c9c3748af3b7355b7615} 
+\index{vector3D@{vector3D}!operator+@{operator+}}
+\index{operator+@{operator+}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} vector3\+D\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga de suma. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_acf7d977a30c24406d5061d3cb0afee25}\label{classvector3D_acf7d977a30c24406d5061d3cb0afee25} 
+\index{vector3D@{vector3D}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily void vector3\+D\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_aa909d84454d42f17b9ee581704b5bcba}\label{classvector3D_aa909d84454d42f17b9ee581704b5bcba} 
+\index{vector3D@{vector3D}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} vector3\+D\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption}) const}
+
+
+
+Sobrecarga de resta. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a62674887cbdb695d2f059939cca13705}\label{classvector3D_a62674887cbdb695d2f059939cca13705} 
+\index{vector3D@{vector3D}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily void vector3\+D\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a8483a92f8db07c5d749ad36c6f56d704}\label{classvector3D_a8483a92f8db07c5d749ad36c6f56d704} 
+\index{vector3D@{vector3D}!operator/@{operator/}}
+\index{operator/@{operator/}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} vector3\+D\+::operator/ (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption}) const}
+
+
+
+División por escalar. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a66024b83f6287a2c3e43780ee51b0230}\label{classvector3D_a66024b83f6287a2c3e43780ee51b0230} 
+\index{vector3D@{vector3D}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily void vector3\+D\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a6f3b8585623c3340d7d87cc402719003}\label{classvector3D_a6f3b8585623c3340d7d87cc402719003} 
+\index{vector3D@{vector3D}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
+\index{operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}()}{operator\string^()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classvector3D}{vector3D}} vector3\+D\+::operator\texorpdfstring{$^\wedge$}{\string^} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classvector3D}{vector3D}} \&}]{v2 }\end{DoxyParamCaption}) const}
+
+
+
+Producto cruz. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a41fa3443c6250cf23461c2b1cf4194d4}\label{classvector3D_a41fa3443c6250cf23461c2b1cf4194d4} 
+\index{vector3D@{vector3D}!show@{show}}
+\index{show@{show}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void vector3\+D\+::show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Muestra el vector por consola. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a4e2256f1c15fb35195442756cefec430}\label{classvector3D_a4e2256f1c15fb35195442756cefec430} 
+\index{vector3D@{vector3D}!x@{x}}
+\index{x@{x}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{x()}{x()}}
+{\footnotesize\ttfamily double vector3\+D\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la componente X del vector. 
+
+\begin{DoxyReturn}{Returns}
+Componente X 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_aabdafd086384e1c592e345862dba13bc}\label{classvector3D_aabdafd086384e1c592e345862dba13bc} 
+\index{vector3D@{vector3D}!y@{y}}
+\index{y@{y}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{y()}{y()}}
+{\footnotesize\ttfamily double vector3\+D\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la componente Y del vector. 
+
+\begin{DoxyReturn}{Returns}
+Componente Y 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+\Hypertarget{classvector3D_a6e6119a76b6ea08daefaf25d39c719e9}\label{classvector3D_a6e6119a76b6ea08daefaf25d39c719e9} 
+\index{vector3D@{vector3D}!z@{z}}
+\index{z@{z}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{z()}{z()}}
+{\footnotesize\ttfamily double vector3\+D\+::z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Obtiene la componente Z del vector. 
+
+\begin{DoxyReturn}{Returns}
+Componente Z 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{vector3D_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{vector3D_8cpp_source}{vector3\+D.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classvector3D_afd10e08cfb82d7cb321cb6df3858310c}\label{classvector3D_afd10e08cfb82d7cb321cb6df3858310c} 
+\index{vector3D@{vector3D}!X@{X}}
+\index{X@{X}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily double vector3\+D\+::X\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8h_source_l00020}{20}} of file \mbox{\hyperlink{vector3D_8h_source}{vector3\+D.\+h}}.
+
+\Hypertarget{classvector3D_a83c4deee64b8ed413d00d137cec99b44}\label{classvector3D_a83c4deee64b8ed413d00d137cec99b44} 
+\index{vector3D@{vector3D}!Y@{Y}}
+\index{Y@{Y}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily double vector3\+D\+::Y\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8h_source_l00020}{20}} of file \mbox{\hyperlink{vector3D_8h_source}{vector3\+D.\+h}}.
+
+\Hypertarget{classvector3D_a8495ec6cf13fe9fb189fb7f790417a5c}\label{classvector3D_a8495ec6cf13fe9fb189fb7f790417a5c} 
+\index{vector3D@{vector3D}!Z@{Z}}
+\index{Z@{Z}!vector3D@{vector3D}}
+\doxysubsubsection{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily double vector3\+D\+::Z\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Componentes cartesianas del vector. 
+
+
+
+Definition at line \mbox{\hyperlink{vector3D_8h_source_l00020}{20}} of file \mbox{\hyperlink{vector3D_8h_source}{vector3\+D.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/include/\mbox{\hyperlink{vector3D_8h}{vector3\+D.\+h}}\item 
+/home/isabel/\+Simulacion-\/\+Gravitacional-\/\+N-\/\+Cuerpos/src/\mbox{\hyperlink{vector3D_8cpp}{vector3\+D.\+cpp}}\end{DoxyCompactItemize}

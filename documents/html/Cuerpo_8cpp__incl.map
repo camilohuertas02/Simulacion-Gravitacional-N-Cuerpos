@@ -1,0 +1,15 @@
+<map id="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/src/Cuerpo.cpp" name="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/src/Cuerpo.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="57,5,244,60"/>
+<area shape="rect" id="Node000002" href="$Cuerpo_8h.html" title="Definición de la clase Cuerpo para simulación gravitacional N&#45;cuerpos." alt="" coords="72,108,152,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,61,125,96,121,94,136,59"/>
+<area shape="rect" id="Node000003" href="$vector3D_8h.html" title="Definición de la clase vector3D para álgebra vectorial 3D." alt="" coords="5,181,99,207"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="107,62,82,83,62,109,53,138,52,167,47,167,48,137,58,107,78,80,103,58"/>
+<area shape="rect" id="Node000005" href="$utilidades_8h.html" title=" " alt="" coords="131,181,229,207"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="158,60,178,167,173,168,153,61"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="227,108,290,133"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="185,58,235,97,231,101,182,62"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,135,73,173,68,169,100,132"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="125,132,161,169,157,173,121,136"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="12,255,92,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="55,207,55,241,49,241,49,207"/>
+</map>

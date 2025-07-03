@@ -1,0 +1,19 @@
+<map id="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/test/main_test.cpp" name="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/test/main_test.cpp">
+<area shape="rect" id="Node000001" title="Programa principal para modo testing de herramientas de graficación." alt="" coords="53,5,240,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,181,85,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,62,62,171,58,168,128,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="110,181,183,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,60,149,168,144,168,144,60"/>
+<area shape="rect" id="Node000004" href="$testing_8h.html" title="Funciones de testing para herramientas de graficación." alt="" coords="199,108,278,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="177,58,218,96,214,100,173,62"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="209,136,90,179,89,174,207,131"/>
+<area shape="poly" id="edge8_Node000004_Node000003" title=" " alt="" coords="226,135,174,175,171,171,222,131"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="381,181,440,207"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="267,131,371,174,369,178,265,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="465,181,530,207"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="279,130,452,178,451,183,278,135"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="207,181,270,207"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="241,134,241,168,236,168,236,134"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="294,181,357,207"/>
+<area shape="poly" id="edge9_Node000004_Node000008" title=" " alt="" coords="254,131,302,170,299,175,251,135"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/include/Cuerpo.h" name="/home/isabel/Simulacion&#45;Gravitacional&#45;N&#45;Cuerpos/include/Cuerpo.h">
+<area shape="rect" id="Node000001" title="Definición de la clase Cuerpo para simulación gravitacional N&#45;cuerpos." alt="" coords="19,5,205,60"/>
+<area shape="rect" id="Node000002" href="$vector3D_8h.html" title="Definición de la clase vector3D para álgebra vectorial 3D." alt="" coords="5,108,99,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,62,70,98,66,95,91,59"/>
+<area shape="rect" id="Node000004" href="$utilidades_8h.html" title=" " alt="" coords="123,108,221,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,59,158,95,154,98,128,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="12,181,92,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="55,134,55,168,49,168,49,134"/>
+</map>
